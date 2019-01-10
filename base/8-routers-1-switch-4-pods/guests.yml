@@ -1,0 +1,1575 @@
+p1r1:
+  vagrant_box:
+    name: "juniper/vmx-vcp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p1r1-vfp"
+      remote_port: 1
+
+p1r1-vfp:
+  vagrant_box:
+    name: "juniper/vmx-vfp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p1r1"
+      remote_port: 1
+
+  data_interfaces:
+    - local_port: 2
+      remote_guest: "p1r2-vfp"
+      remote_port: 1
+    - local_port: 3
+      remote_guest: "p1r3-vfp"
+      remote_port: 1
+    - local_port: 4
+      remote_guest: "p1r4-vfp"
+      remote_port: 1
+    - local_port: 5
+      remote_guest: "p1r5-vfp"
+      remote_port: 1
+    - local_port: 6
+      remote_guest: "p1r6-vfp"
+      remote_port: 1
+    - local_port: 7
+      remote_guest: "p1r7-vfp"
+      remote_port: 1
+    - local_port: 8
+      remote_guest: "p1r8-vfp"
+      remote_port: 1
+    - local_port: 9
+      remote_guest: "p1sw1"
+      remote_port: 1
+
+p1r2:
+  vagrant_box:
+    name: "juniper/vmx-vcp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p1r2-vfp"
+      remote_port: 1
+
+p1r2-vfp:
+  vagrant_box:
+    name: "juniper/vmx-vfp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p1r2"
+      remote_port: 1
+
+  data_interfaces:
+    - local_port: 1
+      remote_guest: "p1r1-vfp"
+      remote_port: 2
+    - local_port: 3
+      remote_guest: "p1r3-vfp"
+      remote_port: 2
+    - local_port: 4
+      remote_guest: "p1r4-vfp"
+      remote_port: 2
+    - local_port: 5
+      remote_guest: "p1r5-vfp"
+      remote_port: 2
+    - local_port: 6
+      remote_guest: "p1r6-vfp"
+      remote_port: 2
+    - local_port: 7
+      remote_guest: "p1r7-vfp"
+      remote_port: 2
+    - local_port: 8
+      remote_guest: "p1r8-vfp"
+      remote_port: 2
+    - local_port: 9
+      remote_guest: "p1sw1"
+      remote_port: 2
+
+p1r3:
+  vagrant_box:
+    name: "juniper/vmx-vcp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p1r3-vfp"
+      remote_port: 1
+
+p1r3-vfp:
+  vagrant_box:
+    name: "juniper/vmx-vfp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p1r3"
+      remote_port: 1
+
+  data_interfaces:
+    - local_port: 1
+      remote_guest: "p1r1-vfp"
+      remote_port: 3
+    - local_port: 2
+      remote_guest: "p1r2-vfp"
+      remote_port: 3
+    - local_port: 4
+      remote_guest: "p1r4-vfp"
+      remote_port: 3
+    - local_port: 5
+      remote_guest: "p1r5-vfp"
+      remote_port: 3
+    - local_port: 6
+      remote_guest: "p1r6-vfp"
+      remote_port: 3
+    - local_port: 7
+      remote_guest: "p1r7-vfp"
+      remote_port: 3
+    - local_port: 8
+      remote_guest: "p1r8-vfp"
+      remote_port: 3
+    - local_port: 9
+      remote_guest: "p1sw1"
+      remote_port: 3
+
+p1r4:
+  vagrant_box:
+    name: "juniper/vmx-vcp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p1r4-vfp"
+      remote_port: 1
+
+p1r4-vfp:
+  vagrant_box:
+    name: "juniper/vmx-vfp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p1r4"
+      remote_port: 1
+
+  data_interfaces:
+    - local_port: 1
+      remote_guest: "p1r1-vfp"
+      remote_port: 4
+    - local_port: 2
+      remote_guest: "p1r2-vfp"
+      remote_port: 4
+    - local_port: 3
+      remote_guest: "p1r3-vfp"
+      remote_port: 4
+    - local_port: 5
+      remote_guest: "p1r5-vfp"
+      remote_port: 4
+    - local_port: 6
+      remote_guest: "p1r6-vfp"
+      remote_port: 4
+    - local_port: 7
+      remote_guest: "p1r7-vfp"
+      remote_port: 4
+    - local_port: 8
+      remote_guest: "p1r8-vfp"
+      remote_port: 4
+    - local_port: 9
+      remote_guest: "p1sw1"
+      remote_port: 4
+
+p1r5:
+  vagrant_box:
+    name: "juniper/vmx-vcp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p1r5-vfp"
+      remote_port: 1
+
+p1r5-vfp:
+  vagrant_box:
+    name: "juniper/vmx-vfp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p1r5"
+      remote_port: 1
+
+  data_interfaces:
+    - local_port: 1
+      remote_guest: "p1r1-vfp"
+      remote_port: 5
+    - local_port: 2
+      remote_guest: "p1r2-vfp"
+      remote_port: 5
+    - local_port: 3
+      remote_guest: "p1r3-vfp"
+      remote_port: 5
+    - local_port: 4
+      remote_guest: "p1r4-vfp"
+      remote_port: 5
+    - local_port: 6
+      remote_guest: "p1r6-vfp"
+      remote_port: 5
+    - local_port: 7
+      remote_guest: "p1r7-vfp"
+      remote_port: 5
+    - local_port: 8
+      remote_guest: "p1r8-vfp"
+      remote_port: 5
+    - local_port: 9
+      remote_guest: "p1sw1"
+      remote_port: 5
+
+p1r6:
+  vagrant_box:
+    name: "juniper/vmx-vcp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p1r6-vfp"
+      remote_port: 1
+
+p1r6-vfp:
+  vagrant_box:
+    name: "juniper/vmx-vfp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p1r6"
+      remote_port: 1
+
+  data_interfaces:
+    - local_port: 1
+      remote_guest: "p1r1-vfp"
+      remote_port: 6
+    - local_port: 2
+      remote_guest: "p1r2-vfp"
+      remote_port: 6
+    - local_port: 3
+      remote_guest: "p1r3-vfp"
+      remote_port: 6
+    - local_port: 4
+      remote_guest: "p1r4-vfp"
+      remote_port: 6
+    - local_port: 5
+      remote_guest: "p1r5-vfp"
+      remote_port: 6
+    - local_port: 7
+      remote_guest: "p1r7-vfp"
+      remote_port: 6
+    - local_port: 8
+      remote_guest: "p1r8-vfp"
+      remote_port: 6
+    - local_port: 9
+      remote_guest: "p1sw1"
+      remote_port: 6
+
+p1r7:
+  vagrant_box:
+    name: "juniper/vmx-vcp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p1r7-vfp"
+      remote_port: 1
+
+p1r7-vfp:
+  vagrant_box:
+    name: "juniper/vmx-vfp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p1r7"
+      remote_port: 1
+
+  data_interfaces:
+    - local_port: 1
+      remote_guest: "p1r1-vfp"
+      remote_port: 7
+    - local_port: 2
+      remote_guest: "p1r2-vfp"
+      remote_port: 7
+    - local_port: 3
+      remote_guest: "p1r3-vfp"
+      remote_port: 7
+    - local_port: 4
+      remote_guest: "p1r4-vfp"
+      remote_port: 7
+    - local_port: 5
+      remote_guest: "p1r5-vfp"
+      remote_port: 7
+    - local_port: 6
+      remote_guest: "p1r6-vfp"
+      remote_port: 7
+    - local_port: 8
+      remote_guest: "p1r8-vfp"
+      remote_port: 7
+    - local_port: 9
+      remote_guest: "p1sw1"
+      remote_port: 7
+
+p1r8:
+  vagrant_box:
+    name: "juniper/vmx-vcp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p1r8-vfp"
+      remote_port: 1
+
+p1r8-vfp:
+  vagrant_box:
+    name: "juniper/vmx-vfp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p1r8"
+      remote_port: 1
+
+  data_interfaces:
+    - local_port: 1
+      remote_guest: "p1r1-vfp"
+      remote_port: 8
+    - local_port: 2
+      remote_guest: "p1r2-vfp"
+      remote_port: 8
+    - local_port: 3
+      remote_guest: "p1r3-vfp"
+      remote_port: 8
+    - local_port: 4
+      remote_guest: "p1r4-vfp"
+      remote_port: 8
+    - local_port: 5
+      remote_guest: "p1r5-vfp"
+      remote_port: 8
+    - local_port: 6
+      remote_guest: "p1r6-vfp"
+      remote_port: 8
+    - local_port: 7
+      remote_guest: "p1r7-vfp"
+      remote_port: 8
+    - local_port: 9
+      remote_guest: "p1sw1"
+      remote_port: 8
+
+p1sw1:
+  vagrant_box:
+    name: "CumulusCommunity/cumulus-vx"
+
+  provider_config:
+    nic_adapter_count: 12
+
+  data_interfaces:
+    - local_port: 1
+      remote_guest: "p1r1-vfp"
+      remote_port: 9
+    - local_port: 2
+      remote_guest: "p1r2-vfp"
+      remote_port: 9
+    - local_port: 3
+      remote_guest: "p1r3-vfp"
+      remote_port: 9
+    - local_port: 4
+      remote_guest: "p1r4-vfp"
+      remote_port: 9
+    - local_port: 5
+      remote_guest: "p1r5-vfp"
+      remote_port: 9
+    - local_port: 6
+      remote_guest: "p1r6-vfp"
+      remote_port: 9
+    - local_port: 7
+      remote_guest: "p1r7-vfp"
+      remote_port: 9
+    - local_port: 8
+      remote_guest: "p1r8-vfp"
+      remote_port: 9
+    - local_port: 12
+      remote_guest: "p2sw1"
+      remote_port: 11
+    - local_port: 13
+      remote_guest: "p3sw1"
+      remote_port: 11
+    - local_port: 14
+      remote_guest: "p4sw1"
+      remote_port: 11
+
+p2r1:
+  vagrant_box:
+    name: "juniper/vmx-vcp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p2r1-vfp"
+      remote_port: 1
+
+p2r1-vfp:
+  vagrant_box:
+    name: "juniper/vmx-vfp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p2r1"
+      remote_port: 1
+
+  data_interfaces:
+    - local_port: 2
+      remote_guest: "p2r2-vfp"
+      remote_port: 1
+    - local_port: 3
+      remote_guest: "p2r3-vfp"
+      remote_port: 1
+    - local_port: 4
+      remote_guest: "p2r4-vfp"
+      remote_port: 1
+    - local_port: 5
+      remote_guest: "p2r5-vfp"
+      remote_port: 1
+    - local_port: 6
+      remote_guest: "p2r6-vfp"
+      remote_port: 1
+    - local_port: 7
+      remote_guest: "p2r7-vfp"
+      remote_port: 1
+    - local_port: 8
+      remote_guest: "p2r8-vfp"
+      remote_port: 1
+    - local_port: 9
+      remote_guest: "p2sw1"
+      remote_port: 1
+
+p2r2:
+  vagrant_box:
+    name: "juniper/vmx-vcp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p2r2-vfp"
+      remote_port: 1
+
+p2r2-vfp:
+  vagrant_box:
+    name: "juniper/vmx-vfp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p2r2"
+      remote_port: 1
+
+  data_interfaces:
+    - local_port: 1
+      remote_guest: "p2r1-vfp"
+      remote_port: 2
+    - local_port: 3
+      remote_guest: "p2r3-vfp"
+      remote_port: 2
+    - local_port: 4
+      remote_guest: "p2r4-vfp"
+      remote_port: 2
+    - local_port: 5
+      remote_guest: "p2r5-vfp"
+      remote_port: 2
+    - local_port: 6
+      remote_guest: "p2r6-vfp"
+      remote_port: 2
+    - local_port: 7
+      remote_guest: "p2r7-vfp"
+      remote_port: 2
+    - local_port: 8
+      remote_guest: "p2r8-vfp"
+      remote_port: 2
+    - local_port: 9
+      remote_guest: "p2sw1"
+      remote_port: 2
+
+p2r3:
+  vagrant_box:
+    name: "juniper/vmx-vcp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p2r3-vfp"
+      remote_port: 1
+
+p2r3-vfp:
+  vagrant_box:
+    name: "juniper/vmx-vfp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p2r3"
+      remote_port: 1
+
+  data_interfaces:
+    - local_port: 1
+      remote_guest: "p2r1-vfp"
+      remote_port: 3
+    - local_port: 2
+      remote_guest: "p2r2-vfp"
+      remote_port: 3
+    - local_port: 4
+      remote_guest: "p2r4-vfp"
+      remote_port: 3
+    - local_port: 5
+      remote_guest: "p2r5-vfp"
+      remote_port: 3
+    - local_port: 6
+      remote_guest: "p2r6-vfp"
+      remote_port: 3
+    - local_port: 7
+      remote_guest: "p2r7-vfp"
+      remote_port: 3
+    - local_port: 8
+      remote_guest: "p2r8-vfp"
+      remote_port: 3
+    - local_port: 9
+      remote_guest: "p2sw1"
+      remote_port: 3
+
+p2r4:
+  vagrant_box:
+    name: "juniper/vmx-vcp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p2r4-vfp"
+      remote_port: 1
+
+p2r4-vfp:
+  vagrant_box:
+    name: "juniper/vmx-vfp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p2r4"
+      remote_port: 1
+
+  data_interfaces:
+    - local_port: 1
+      remote_guest: "p2r1-vfp"
+      remote_port: 4
+    - local_port: 2
+      remote_guest: "p2r2-vfp"
+      remote_port: 4
+    - local_port: 3
+      remote_guest: "p2r3-vfp"
+      remote_port: 4
+    - local_port: 5
+      remote_guest: "p2r5-vfp"
+      remote_port: 4
+    - local_port: 6
+      remote_guest: "p2r6-vfp"
+      remote_port: 4
+    - local_port: 7
+      remote_guest: "p2r7-vfp"
+      remote_port: 4
+    - local_port: 8
+      remote_guest: "p2r8-vfp"
+      remote_port: 4
+    - local_port: 9
+      remote_guest: "p2sw1"
+      remote_port: 4
+
+p2r5:
+  vagrant_box:
+    name: "juniper/vmx-vcp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p2r5-vfp"
+      remote_port: 1
+
+p2r5-vfp:
+  vagrant_box:
+    name: "juniper/vmx-vfp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p2r5"
+      remote_port: 1
+
+  data_interfaces:
+    - local_port: 1
+      remote_guest: "p2r1-vfp"
+      remote_port: 5
+    - local_port: 2
+      remote_guest: "p2r2-vfp"
+      remote_port: 5
+    - local_port: 3
+      remote_guest: "p2r3-vfp"
+      remote_port: 5
+    - local_port: 4
+      remote_guest: "p2r4-vfp"
+      remote_port: 5
+    - local_port: 6
+      remote_guest: "p2r6-vfp"
+      remote_port: 5
+    - local_port: 7
+      remote_guest: "p2r7-vfp"
+      remote_port: 5
+    - local_port: 8
+      remote_guest: "p2r8-vfp"
+      remote_port: 5
+    - local_port: 9
+      remote_guest: "p2sw1"
+      remote_port: 5
+
+p2r6:
+  vagrant_box:
+    name: "juniper/vmx-vcp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p2r6-vfp"
+      remote_port: 1
+
+p2r6-vfp:
+  vagrant_box:
+    name: "juniper/vmx-vfp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p2r6"
+      remote_port: 1
+
+  data_interfaces:
+    - local_port: 1
+      remote_guest: "p2r1-vfp"
+      remote_port: 6
+    - local_port: 2
+      remote_guest: "p2r2-vfp"
+      remote_port: 6
+    - local_port: 3
+      remote_guest: "p2r3-vfp"
+      remote_port: 6
+    - local_port: 4
+      remote_guest: "p2r4-vfp"
+      remote_port: 6
+    - local_port: 5
+      remote_guest: "p2r5-vfp"
+      remote_port: 6
+    - local_port: 7
+      remote_guest: "p2r7-vfp"
+      remote_port: 6
+    - local_port: 8
+      remote_guest: "p2r8-vfp"
+      remote_port: 6
+    - local_port: 9
+      remote_guest: "p2sw1"
+      remote_port: 6
+
+p2r7:
+  vagrant_box:
+    name: "juniper/vmx-vcp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p2r7-vfp"
+      remote_port: 1
+
+p2r7-vfp:
+  vagrant_box:
+    name: "juniper/vmx-vfp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p2r7"
+      remote_port: 1
+
+  data_interfaces:
+    - local_port: 1
+      remote_guest: "p2r1-vfp"
+      remote_port: 7
+    - local_port: 2
+      remote_guest: "p2r2-vfp"
+      remote_port: 7
+    - local_port: 3
+      remote_guest: "p2r3-vfp"
+      remote_port: 7
+    - local_port: 4
+      remote_guest: "p2r4-vfp"
+      remote_port: 7
+    - local_port: 5
+      remote_guest: "p2r5-vfp"
+      remote_port: 7
+    - local_port: 6
+      remote_guest: "p2r6-vfp"
+      remote_port: 7
+    - local_port: 8
+      remote_guest: "p2r8-vfp"
+      remote_port: 7
+    - local_port: 9
+      remote_guest: "p2sw1"
+      remote_port: 7
+
+p2r8:
+  vagrant_box:
+    name: "juniper/vmx-vcp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p2r8-vfp"
+      remote_port: 1
+
+p2r8-vfp:
+  vagrant_box:
+    name: "juniper/vmx-vfp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p2r8"
+      remote_port: 1
+
+  data_interfaces:
+    - local_port: 1
+      remote_guest: "p2r1-vfp"
+      remote_port: 8
+    - local_port: 2
+      remote_guest: "p2r2-vfp"
+      remote_port: 8
+    - local_port: 3
+      remote_guest: "p2r3-vfp"
+      remote_port: 8
+    - local_port: 4
+      remote_guest: "p2r4-vfp"
+      remote_port: 8
+    - local_port: 5
+      remote_guest: "p2r5-vfp"
+      remote_port: 8
+    - local_port: 6
+      remote_guest: "p2r6-vfp"
+      remote_port: 8
+    - local_port: 7
+      remote_guest: "p2r7-vfp"
+      remote_port: 8
+    - local_port: 9
+      remote_guest: "p2sw1"
+      remote_port: 8
+
+p2sw1:
+  vagrant_box:
+    name: "CumulusCommunity/cumulus-vx"
+
+  provider_config:
+    nic_adapter_count: 12
+
+  data_interfaces:
+    - local_port: 1
+      remote_guest: "p2r1-vfp"
+      remote_port: 9
+    - local_port: 2
+      remote_guest: "p2r2-vfp"
+      remote_port: 9
+    - local_port: 3
+      remote_guest: "p2r3-vfp"
+      remote_port: 9
+    - local_port: 4
+      remote_guest: "p2r4-vfp"
+      remote_port: 9
+    - local_port: 5
+      remote_guest: "p2r5-vfp"
+      remote_port: 9
+    - local_port: 6
+      remote_guest: "p2r6-vfp"
+      remote_port: 9
+    - local_port: 7
+      remote_guest: "p2r7-vfp"
+      remote_port: 9
+    - local_port: 8
+      remote_guest: "p2r8-vfp"
+      remote_port: 9
+    - local_port: 11
+      remote_guest: "p1sw1"
+      remote_port: 12
+    - local_port: 13
+      remote_guest: "p3sw1"
+      remote_port: 12
+    - local_port: 14
+      remote_guest: "p4sw1"
+      remote_port: 12
+
+p3r1:
+  vagrant_box:
+    name: "juniper/vmx-vcp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p3r1-vfp"
+      remote_port: 1
+
+p3r1-vfp:
+  vagrant_box:
+    name: "juniper/vmx-vfp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p3r1"
+      remote_port: 1
+
+  data_interfaces:
+    - local_port: 2
+      remote_guest: "p3r2-vfp"
+      remote_port: 1
+    - local_port: 3
+      remote_guest: "p3r3-vfp"
+      remote_port: 1
+    - local_port: 4
+      remote_guest: "p3r4-vfp"
+      remote_port: 1
+    - local_port: 5
+      remote_guest: "p3r5-vfp"
+      remote_port: 1
+    - local_port: 6
+      remote_guest: "p3r6-vfp"
+      remote_port: 1
+    - local_port: 7
+      remote_guest: "p3r7-vfp"
+      remote_port: 1
+    - local_port: 8
+      remote_guest: "p3r8-vfp"
+      remote_port: 1
+    - local_port: 9
+      remote_guest: "p3sw1"
+      remote_port: 1
+
+p3r2:
+  vagrant_box:
+    name: "juniper/vmx-vcp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p3r2-vfp"
+      remote_port: 1
+
+p3r2-vfp:
+  vagrant_box:
+    name: "juniper/vmx-vfp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p3r2"
+      remote_port: 1
+
+  data_interfaces:
+    - local_port: 1
+      remote_guest: "p3r1-vfp"
+      remote_port: 2
+    - local_port: 3
+      remote_guest: "p3r3-vfp"
+      remote_port: 2
+    - local_port: 4
+      remote_guest: "p3r4-vfp"
+      remote_port: 2
+    - local_port: 5
+      remote_guest: "p3r5-vfp"
+      remote_port: 2
+    - local_port: 6
+      remote_guest: "p3r6-vfp"
+      remote_port: 2
+    - local_port: 7
+      remote_guest: "p3r7-vfp"
+      remote_port: 2
+    - local_port: 8
+      remote_guest: "p3r8-vfp"
+      remote_port: 2
+    - local_port: 9
+      remote_guest: "p3sw1"
+      remote_port: 2
+
+p3r3:
+  vagrant_box:
+    name: "juniper/vmx-vcp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p3r3-vfp"
+      remote_port: 1
+
+p3r3-vfp:
+  vagrant_box:
+    name: "juniper/vmx-vfp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p3r3"
+      remote_port: 1
+
+  data_interfaces:
+    - local_port: 1
+      remote_guest: "p3r1-vfp"
+      remote_port: 3
+    - local_port: 2
+      remote_guest: "p3r2-vfp"
+      remote_port: 3
+    - local_port: 4
+      remote_guest: "p3r4-vfp"
+      remote_port: 3
+    - local_port: 5
+      remote_guest: "p3r5-vfp"
+      remote_port: 3
+    - local_port: 6
+      remote_guest: "p3r6-vfp"
+      remote_port: 3
+    - local_port: 7
+      remote_guest: "p3r7-vfp"
+      remote_port: 3
+    - local_port: 8
+      remote_guest: "p3r8-vfp"
+      remote_port: 3
+    - local_port: 9
+      remote_guest: "p3sw1"
+      remote_port: 3
+
+p3r4:
+  vagrant_box:
+    name: "juniper/vmx-vcp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p3r4-vfp"
+      remote_port: 1
+
+p3r4-vfp:
+  vagrant_box:
+    name: "juniper/vmx-vfp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p3r4"
+      remote_port: 1
+
+  data_interfaces:
+    - local_port: 1
+      remote_guest: "p3r1-vfp"
+      remote_port: 4
+    - local_port: 2
+      remote_guest: "p3r2-vfp"
+      remote_port: 4
+    - local_port: 3
+      remote_guest: "p3r3-vfp"
+      remote_port: 4
+    - local_port: 5
+      remote_guest: "p3r5-vfp"
+      remote_port: 4
+    - local_port: 6
+      remote_guest: "p3r6-vfp"
+      remote_port: 4
+    - local_port: 7
+      remote_guest: "p3r7-vfp"
+      remote_port: 4
+    - local_port: 8
+      remote_guest: "p3r8-vfp"
+      remote_port: 4
+    - local_port: 9
+      remote_guest: "p3sw1"
+      remote_port: 4
+
+p3r5:
+  vagrant_box:
+    name: "juniper/vmx-vcp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p3r5-vfp"
+      remote_port: 1
+
+p3r5-vfp:
+  vagrant_box:
+    name: "juniper/vmx-vfp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p3r5"
+      remote_port: 1
+
+  data_interfaces:
+    - local_port: 1
+      remote_guest: "p3r1-vfp"
+      remote_port: 5
+    - local_port: 2
+      remote_guest: "p3r2-vfp"
+      remote_port: 5
+    - local_port: 3
+      remote_guest: "p3r3-vfp"
+      remote_port: 5
+    - local_port: 4
+      remote_guest: "p3r4-vfp"
+      remote_port: 5
+    - local_port: 6
+      remote_guest: "p3r6-vfp"
+      remote_port: 5
+    - local_port: 7
+      remote_guest: "p3r7-vfp"
+      remote_port: 5
+    - local_port: 8
+      remote_guest: "p3r8-vfp"
+      remote_port: 5
+    - local_port: 9
+      remote_guest: "p3sw1"
+      remote_port: 5
+
+p3r6:
+  vagrant_box:
+    name: "juniper/vmx-vcp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p3r6-vfp"
+      remote_port: 1
+
+p3r6-vfp:
+  vagrant_box:
+    name: "juniper/vmx-vfp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p3r6"
+      remote_port: 1
+
+  data_interfaces:
+    - local_port: 1
+      remote_guest: "p3r1-vfp"
+      remote_port: 6
+    - local_port: 2
+      remote_guest: "p3r2-vfp"
+      remote_port: 6
+    - local_port: 3
+      remote_guest: "p3r3-vfp"
+      remote_port: 6
+    - local_port: 4
+      remote_guest: "p3r4-vfp"
+      remote_port: 6
+    - local_port: 5
+      remote_guest: "p3r5-vfp"
+      remote_port: 6
+    - local_port: 7
+      remote_guest: "p3r7-vfp"
+      remote_port: 6
+    - local_port: 8
+      remote_guest: "p3r8-vfp"
+      remote_port: 6
+    - local_port: 9
+      remote_guest: "p3sw1"
+      remote_port: 6
+
+p3r7:
+  vagrant_box:
+    name: "juniper/vmx-vcp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p3r7-vfp"
+      remote_port: 1
+
+p3r7-vfp:
+  vagrant_box:
+    name: "juniper/vmx-vfp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p3r7"
+      remote_port: 1
+
+  data_interfaces:
+    - local_port: 1
+      remote_guest: "p3r1-vfp"
+      remote_port: 7
+    - local_port: 2
+      remote_guest: "p3r2-vfp"
+      remote_port: 7
+    - local_port: 3
+      remote_guest: "p3r3-vfp"
+      remote_port: 7
+    - local_port: 4
+      remote_guest: "p3r4-vfp"
+      remote_port: 7
+    - local_port: 5
+      remote_guest: "p3r5-vfp"
+      remote_port: 7
+    - local_port: 6
+      remote_guest: "p3r6-vfp"
+      remote_port: 7
+    - local_port: 8
+      remote_guest: "p3r8-vfp"
+      remote_port: 7
+    - local_port: 9
+      remote_guest: "p3sw1"
+      remote_port: 7
+
+p3r8:
+  vagrant_box:
+    name: "juniper/vmx-vcp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p3r8-vfp"
+      remote_port: 1
+
+p3r8-vfp:
+  vagrant_box:
+    name: "juniper/vmx-vfp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p3r8"
+      remote_port: 1
+
+  data_interfaces:
+    - local_port: 1
+      remote_guest: "p3r1-vfp"
+      remote_port: 8
+    - local_port: 2
+      remote_guest: "p3r2-vfp"
+      remote_port: 8
+    - local_port: 3
+      remote_guest: "p3r3-vfp"
+      remote_port: 8
+    - local_port: 4
+      remote_guest: "p3r4-vfp"
+      remote_port: 8
+    - local_port: 5
+      remote_guest: "p3r5-vfp"
+      remote_port: 8
+    - local_port: 6
+      remote_guest: "p3r6-vfp"
+      remote_port: 8
+    - local_port: 7
+      remote_guest: "p3r7-vfp"
+      remote_port: 8
+    - local_port: 9
+      remote_guest: "p3sw1"
+      remote_port: 8
+
+p3sw1:
+  vagrant_box:
+    name: "CumulusCommunity/cumulus-vx"
+
+  provider_config:
+    nic_adapter_count: 12
+
+  data_interfaces:
+    - local_port: 1
+      remote_guest: "p3r1-vfp"
+      remote_port: 9
+    - local_port: 2
+      remote_guest: "p3r2-vfp"
+      remote_port: 9
+    - local_port: 3
+      remote_guest: "p3r3-vfp"
+      remote_port: 9
+    - local_port: 4
+      remote_guest: "p3r4-vfp"
+      remote_port: 9
+    - local_port: 5
+      remote_guest: "p3r5-vfp"
+      remote_port: 9
+    - local_port: 6
+      remote_guest: "p3r6-vfp"
+      remote_port: 9
+    - local_port: 7
+      remote_guest: "p3r7-vfp"
+      remote_port: 9
+    - local_port: 8
+      remote_guest: "p3r8-vfp"
+      remote_port: 9
+    - local_port: 11
+      remote_guest: "p1sw1"
+      remote_port: 13
+    - local_port: 12
+      remote_guest: "p2sw1"
+      remote_port: 13
+    - local_port: 14
+      remote_guest: "p4sw1"
+      remote_port: 13
+
+p4r1:
+  vagrant_box:
+    name: "juniper/vmx-vcp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p4r1-vfp"
+      remote_port: 1
+
+p4r1-vfp:
+  vagrant_box:
+    name: "juniper/vmx-vfp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p4r1"
+      remote_port: 1
+
+  data_interfaces:
+    - local_port: 2
+      remote_guest: "p4r2-vfp"
+      remote_port: 1
+    - local_port: 3
+      remote_guest: "p4r3-vfp"
+      remote_port: 1
+    - local_port: 4
+      remote_guest: "p4r4-vfp"
+      remote_port: 1
+    - local_port: 5
+      remote_guest: "p4r5-vfp"
+      remote_port: 1
+    - local_port: 6
+      remote_guest: "p4r6-vfp"
+      remote_port: 1
+    - local_port: 7
+      remote_guest: "p4r7-vfp"
+      remote_port: 1
+    - local_port: 8
+      remote_guest: "p4r8-vfp"
+      remote_port: 1
+    - local_port: 9
+      remote_guest: "p4sw1"
+      remote_port: 1
+
+p4r2:
+  vagrant_box:
+    name: "juniper/vmx-vcp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p4r2-vfp"
+      remote_port: 1
+
+p4r2-vfp:
+  vagrant_box:
+    name: "juniper/vmx-vfp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p4r2"
+      remote_port: 1
+
+  data_interfaces:
+    - local_port: 1
+      remote_guest: "p4r1-vfp"
+      remote_port: 2
+    - local_port: 3
+      remote_guest: "p4r3-vfp"
+      remote_port: 2
+    - local_port: 4
+      remote_guest: "p4r4-vfp"
+      remote_port: 2
+    - local_port: 5
+      remote_guest: "p4r5-vfp"
+      remote_port: 2
+    - local_port: 6
+      remote_guest: "p4r6-vfp"
+      remote_port: 2
+    - local_port: 7
+      remote_guest: "p4r7-vfp"
+      remote_port: 2
+    - local_port: 8
+      remote_guest: "p4r8-vfp"
+      remote_port: 2
+    - local_port: 9
+      remote_guest: "p4sw1"
+      remote_port: 2
+
+p4r3:
+  vagrant_box:
+    name: "juniper/vmx-vcp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p4r3-vfp"
+      remote_port: 1
+
+p4r3-vfp:
+  vagrant_box:
+    name: "juniper/vmx-vfp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p4r3"
+      remote_port: 1
+
+  data_interfaces:
+    - local_port: 1
+      remote_guest: "p4r1-vfp"
+      remote_port: 3
+    - local_port: 2
+      remote_guest: "p4r2-vfp"
+      remote_port: 3
+    - local_port: 4
+      remote_guest: "p4r4-vfp"
+      remote_port: 3
+    - local_port: 5
+      remote_guest: "p4r5-vfp"
+      remote_port: 3
+    - local_port: 6
+      remote_guest: "p4r6-vfp"
+      remote_port: 3
+    - local_port: 7
+      remote_guest: "p4r7-vfp"
+      remote_port: 3
+    - local_port: 8
+      remote_guest: "p4r8-vfp"
+      remote_port: 3
+    - local_port: 9
+      remote_guest: "p4sw1"
+      remote_port: 3
+
+p4r4:
+  vagrant_box:
+    name: "juniper/vmx-vcp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p4r4-vfp"
+      remote_port: 1
+
+p4r4-vfp:
+  vagrant_box:
+    name: "juniper/vmx-vfp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p4r4"
+      remote_port: 1
+
+  data_interfaces:
+    - local_port: 1
+      remote_guest: "p4r1-vfp"
+      remote_port: 4
+    - local_port: 2
+      remote_guest: "p4r2-vfp"
+      remote_port: 4
+    - local_port: 3
+      remote_guest: "p4r3-vfp"
+      remote_port: 4
+    - local_port: 5
+      remote_guest: "p4r5-vfp"
+      remote_port: 4
+    - local_port: 6
+      remote_guest: "p4r6-vfp"
+      remote_port: 4
+    - local_port: 7
+      remote_guest: "p4r7-vfp"
+      remote_port: 4
+    - local_port: 8
+      remote_guest: "p4r8-vfp"
+      remote_port: 4
+    - local_port: 9
+      remote_guest: "p4sw1"
+      remote_port: 4
+
+p4r5:
+  vagrant_box:
+    name: "juniper/vmx-vcp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p4r5-vfp"
+      remote_port: 1
+
+p4r5-vfp:
+  vagrant_box:
+    name: "juniper/vmx-vfp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p4r5"
+      remote_port: 1
+
+  data_interfaces:
+    - local_port: 1
+      remote_guest: "p4r1-vfp"
+      remote_port: 5
+    - local_port: 2
+      remote_guest: "p4r2-vfp"
+      remote_port: 5
+    - local_port: 3
+      remote_guest: "p4r3-vfp"
+      remote_port: 5
+    - local_port: 4
+      remote_guest: "p4r4-vfp"
+      remote_port: 5
+    - local_port: 6
+      remote_guest: "p4r6-vfp"
+      remote_port: 5
+    - local_port: 7
+      remote_guest: "p4r7-vfp"
+      remote_port: 5
+    - local_port: 8
+      remote_guest: "p4r8-vfp"
+      remote_port: 5
+    - local_port: 9
+      remote_guest: "p4sw1"
+      remote_port: 5
+
+p4r6:
+  vagrant_box:
+    name: "juniper/vmx-vcp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p4r6-vfp"
+      remote_port: 1
+
+p4r6-vfp:
+  vagrant_box:
+    name: "juniper/vmx-vfp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p4r6"
+      remote_port: 1
+
+  data_interfaces:
+    - local_port: 1
+      remote_guest: "p4r1-vfp"
+      remote_port: 6
+    - local_port: 2
+      remote_guest: "p4r2-vfp"
+      remote_port: 6
+    - local_port: 3
+      remote_guest: "p4r3-vfp"
+      remote_port: 6
+    - local_port: 4
+      remote_guest: "p4r4-vfp"
+      remote_port: 6
+    - local_port: 5
+      remote_guest: "p4r5-vfp"
+      remote_port: 6
+    - local_port: 7
+      remote_guest: "p4r7-vfp"
+      remote_port: 6
+    - local_port: 8
+      remote_guest: "p4r8-vfp"
+      remote_port: 6
+    - local_port: 9
+      remote_guest: "p4sw1"
+      remote_port: 6
+
+p4r7:
+  vagrant_box:
+    name: "juniper/vmx-vcp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p4r7-vfp"
+      remote_port: 1
+
+p4r7-vfp:
+  vagrant_box:
+    name: "juniper/vmx-vfp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p4r7"
+      remote_port: 1
+
+  data_interfaces:
+    - local_port: 1
+      remote_guest: "p4r1-vfp"
+      remote_port: 7
+    - local_port: 2
+      remote_guest: "p4r2-vfp"
+      remote_port: 7
+    - local_port: 3
+      remote_guest: "p4r3-vfp"
+      remote_port: 7
+    - local_port: 4
+      remote_guest: "p4r4-vfp"
+      remote_port: 7
+    - local_port: 5
+      remote_guest: "p4r5-vfp"
+      remote_port: 7
+    - local_port: 6
+      remote_guest: "p4r6-vfp"
+      remote_port: 7
+    - local_port: 8
+      remote_guest: "p4r8-vfp"
+      remote_port: 7
+    - local_port: 9
+      remote_guest: "p4sw1"
+      remote_port: 7
+
+p4r8:
+  vagrant_box:
+    name: "juniper/vmx-vcp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p4r8-vfp"
+      remote_port: 1
+
+p4r8-vfp:
+  vagrant_box:
+    name: "juniper/vmx-vfp"
+
+  internal_interfaces:
+    - local_port: 1
+      remote_guest: "p4r8"
+      remote_port: 1
+
+  data_interfaces:
+    - local_port: 1
+      remote_guest: "p4r1-vfp"
+      remote_port: 8
+    - local_port: 2
+      remote_guest: "p4r2-vfp"
+      remote_port: 8
+    - local_port: 3
+      remote_guest: "p4r3-vfp"
+      remote_port: 8
+    - local_port: 4
+      remote_guest: "p4r4-vfp"
+      remote_port: 8
+    - local_port: 5
+      remote_guest: "p4r5-vfp"
+      remote_port: 8
+    - local_port: 6
+      remote_guest: "p4r6-vfp"
+      remote_port: 8
+    - local_port: 7
+      remote_guest: "p4r7-vfp"
+      remote_port: 8
+    - local_port: 9
+      remote_guest: "p4sw1"
+      remote_port: 8
+
+p4sw1:
+  vagrant_box:
+    name: "CumulusCommunity/cumulus-vx"
+
+  provider_config:
+    nic_adapter_count: 12
+
+  data_interfaces:
+    - local_port: 1
+      remote_guest: "p4r1-vfp"
+      remote_port: 9
+    - local_port: 2
+      remote_guest: "p4r2-vfp"
+      remote_port: 9
+    - local_port: 3
+      remote_guest: "p4r3-vfp"
+      remote_port: 9
+    - local_port: 4
+      remote_guest: "p4r4-vfp"
+      remote_port: 9
+    - local_port: 5
+      remote_guest: "p4r5-vfp"
+      remote_port: 9
+    - local_port: 6
+      remote_guest: "p4r6-vfp"
+      remote_port: 9
+    - local_port: 7
+      remote_guest: "p4r7-vfp"
+      remote_port: 9
+    - local_port: 8
+      remote_guest: "p4r8-vfp"
+      remote_port: 9
+    - local_port: 11
+      remote_guest: "p1sw1"
+      remote_port: 14
+    - local_port: 12
+      remote_guest: "p2sw1"
+      remote_port: 14
+    - local_port: 13
+      remote_guest: "p3sw1"
+      remote_port: 14
