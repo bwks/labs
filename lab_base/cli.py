@@ -12,7 +12,7 @@ from lab_base.vagrant import (
 
 def main():
     parser = argparse.ArgumentParser(description='Lab Base Provisioning')
-    parser.add_argument('provision', help='Provision lab', dest='guest_data')
+    parser.add_argument('provision', help='Provision lab')
     args = parser.parse_args()
 
     if args.provision:
