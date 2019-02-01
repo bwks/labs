@@ -25,7 +25,7 @@ setup(
 
     entry_points={
         'console_scripts': [
-            'lab_base = lab_base:cli',
+            'lab_base = lab_base.cli:main',
         ]
     },
 
