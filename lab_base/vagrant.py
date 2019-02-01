@@ -48,4 +48,4 @@ def worker(guests):
     pool.close()
     pool.join()
 
-    print([i.get() for i in results])
+    return [i.get() for i in results]
