@@ -20,7 +20,7 @@ def main():
         print('Gathering vagrant config')
         guests = get_guests()
         data = worker(guests)
-        with open('.sshconfig', 'r') as f:
+        with open('.sshconfig', 'w') as f:
             f.write(' '.join(data))
         print(f'Guest data saved to file "{args.guest_data}"')
 
