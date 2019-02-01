@@ -1,0 +1,18 @@
+---
+router:
+  username: "vagrant"
+  password: "Vagrant"
+  platform: "junos"
+  data:
+    type: "network_device"
+    role: "router"
+
+switch:
+  username: "vagrant"
+  password: "vagrant"
+  platform: "eos"
+  data:
+    type: "network_device"
+    role: "switch"
+
+pod1:
