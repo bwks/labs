@@ -23,10 +23,10 @@ setup(
         'nornir',
     ],
 
-    # entry_points={
-    #     'console_scripts': [
-    #         'lab_base = lab_base:cli',
-    #     ]
-    # },
+    entry_points={
+        'console_scripts': [
+            'lab_base = lab_base:cli',
+        ]
+    },
 
 )
