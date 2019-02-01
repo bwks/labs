@@ -17,12 +17,12 @@ def main():
     args = parser.parse_args()
 
     if args.guest_data:
-        print('Gathering vagrant config')
+        print('Gathering vagrant SSH config')
         guests = get_guests()
         data = worker(guests)
         with open('.sshconfig', 'w') as f:
-            f.write(' '.join(data))
-        print(f'Guest data saved to file "{args.guest_data}"')
+            f.write('\n'.join(data))
+        print(f'SSH config saved to file ".sshconfig"')
 
 
 if __name__ == '__main__':
