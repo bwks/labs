@@ -1,0 +1,5 @@
+sudo sed -i 's/^#resv_vlan_range.*/resv_vlan_range = 3700-4000/' /etc/cumulus/switchd.conf
+sudo systemctl restart switchd.service
+sudo net add hostname {{ hostname }}
+sudo net add vlan {{ vlans|join(',') }}
+sudo net add int swp1-9,11-14 bridge trunk

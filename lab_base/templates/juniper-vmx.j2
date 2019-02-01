@@ -1,0 +1,18 @@
+set system host-name {{ hostname }}
+set protocols lldp interface all
+set protocols lldp port-description-type interface-description
+{% for interface, data in interfaces.physical_interfaces.items() %}
+set interfaces ge-0/0/{{ interface }}.0 family inet address {{ data.ipv4_address }}
+set interfaces ge-0/0/{{ interface }}.0 family inet6 address {{ data.ipv6_address }}
+{% endfor %}
+set interfaces ge-0/0/9 flexible-vlan-tagging
+{% for interface, data in interfaces.sub_interfaces.items() %}
+{% set vlan_id = interface.split('.')|last %}
+set interfaces ge-0/0/9.{{ vlan_id }} vlan-id {{ vlan_id }} family inet address {{ data.ipv4_address }}
+set interfaces ge-0/0/9.{{ vlan_id }} vlan-id {{ vlan_id }}  family inet6 address {{ data.ipv6_address }}
+set interfaces ge-0/0/9.{{ vlan_id }} disable
+{% endfor %}
+{% for interface, data in interfaces.loopbacks.items() %}
+set interfaces lo0.{{ interface }} family inet address {{ data.ipv4_address }}
+set interfaces lo0.{{ interface }} family inet6 address {{ data.ipv6_address }}
+{% endfor %}
