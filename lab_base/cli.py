@@ -23,6 +23,11 @@ def main():
     if args.ssh_config or args.apply_config:
         guests = vagrant.get_guests()
 
+    if args.device_config:
+        print('Generating device config')
+        generate_base_config.make_config()
+        print('Config saved to "./config" directory.')
+
     if args.ssh_config:
         print('Gathering vagrant SSH config')
         ssh_config_dict = vagrant.worker(guests)
@@ -40,7 +45,3 @@ def main():
         provision.worker(args.apply_config)
         print('Config applied to devices.')
 
-    if args.device_config:
-        print('Generating device config')
-        generate_base_config.make_config()
-        print('Config saved to "./config" directory.')
