@@ -1,13 +1,13 @@
 import sys
-if not sys.version_info >= (3, 6):
-    sys.exit('Python 3.6 or greater required.')
-
 import argparse
 import json
 
 from lab_base import vagrant
 from lab_base import provision
 from lab_base import generate_base_config
+
+if not sys.version_info >= (3, 6):
+    sys.exit('Python 3.6 or greater required.')
 
 
 def main():
