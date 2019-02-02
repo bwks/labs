@@ -1,2 +1,4 @@
+jinja2
 napalm
+pyyaml
 grifter

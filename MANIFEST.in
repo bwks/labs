@@ -1,0 +1,2 @@
+include lab_base/templates/*
+include lab_base/nornir/*
