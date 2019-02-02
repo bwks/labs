@@ -13,7 +13,8 @@ def main():
     parser = argparse.ArgumentParser(description='Lab Base Provisioning')
     parser.add_argument('--ssh-config', default=False, action='store_true',
                         dest='ssh_config', help='Gather Vagrant SSH config')
-    parser.add_argument('--provision', nargs='+', help='Apply config to devices')
+    parser.add_argument('--apply-config', nargs='+',
+                        dest='apply_config', help='Apply config to devices')
     args = parser.parse_args()
 
     if args.ssh_config:
@@ -26,7 +27,7 @@ def main():
             f.write(json.dumps(ssh_config_dict))
         print(f'SSH config saved to file ".sshconfig and .sshconfig.json"')
 
-    if args.provision:
+    if args.apply_config:
         print('Applying config to devices')
-        print(args.provision)
+        print(args.apply_config)
         # provision.worker(args.provision)
