@@ -37,7 +37,7 @@ def make_config():
         write_to_file(router, router_model, config)
 
     for switch in switches:
-        pod = pod_map.get(switch[::2])
+        pod = pod_map.get(switch[:2])
         config = render_from_template(
             template_name=TEMPLATE_MAP[switch_model],
             template_directory=TEMPLATES_DIR,
