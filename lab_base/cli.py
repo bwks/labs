@@ -14,10 +14,11 @@ from lab_base.vagrant import (
 
 def main():
     parser = argparse.ArgumentParser(description='Lab Base Provisioning')
-    parser.add_argument('--provision', help='Provision lab', default=False, action='store_true')
+    parser.add_argument('--ssh-config', help='Provision lab', default=False, action='store_true',
+                        target='ssh_config')
     args = parser.parse_args()
 
-    if args.provision:
+    if args.ssh_config:
         print('Gathering vagrant SSH config')
         guests = get_guests()
         ssh_config_dict = worker(guests)

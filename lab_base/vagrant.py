@@ -23,7 +23,7 @@ def ssh_config_to_dict(guest):
 def ssh_config_to_list(ssh_config_dict):
     ssh_config_list = []
     for key, value in ssh_config_dict.items():
-        ssh_config_list.append(key)
+        ssh_config_list.append(f'Host {key}')
         for k, v in value.items():
             ssh_config_list.append(f'  {k} {v}')
     return ssh_config_list

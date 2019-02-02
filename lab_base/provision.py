@@ -1,5 +1,5 @@
 import yaml
-
+import json
 from multiprocessing.pool import ThreadPool
 from napalm import get_network_driver
 
@@ -40,11 +40,14 @@ def get_device_model():
 
 
 def provisioner(device, device_model):
+    with open('.sshconfig.json', 'r') as f:
+        ssh_config_json = json.load(f)
+    host_name = ssh_config_json[device].get('HostName')
     config = f'config/{device}-{device_model}.cfg'
     device_driver = driver_switcher(device_model)
     commit_message = 'base-config' if device_driver == 'junos' else ''
     driver = get_network_driver(device_driver)
-    device = driver(hostname=device, username='', password='',
+    device = driver(hostname=host_name, username='', password='',
                     optional_args={'ssh_config_file': '.sshconfig'})
     device.open()
     device.load_merge_candidate(filename=config)
