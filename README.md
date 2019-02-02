@@ -1,5 +1,7 @@
 # labs
-Repository for various labs
+Repository for various labs based on the following topolgy.
+[https://codingpackets.com/blog/network-lab-base/](https://codingpackets.com/blog/network-lab-base/)
+
 #### Requirements
 - python3.6+
 - vagrant 2.1+
