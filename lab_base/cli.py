@@ -17,9 +17,9 @@ def main():
                         dest='apply_config', help='Apply config to devices')
     args = parser.parse_args()
 
+    guests = vagrant.get_guests()
     if args.ssh_config:
         print('Gathering vagrant SSH config')
-        guests = vagrant.get_guests()
         ssh_config_dict = vagrant.worker(guests)
         with open('.sshconfig', 'w') as f:
             f.write('\n'.join(vagrant.ssh_config_to_list(ssh_config_dict)))
@@ -29,5 +29,7 @@ def main():
 
     if args.apply_config:
         print('Applying config to devices')
-        print(args.apply_config)
-        # provision.worker(args.provision)
+        for guest in args.apply_config:
+            if guest not in guests:
+                raise ValueError('Guest: {guest} either not configured or up.')
+        provision.worker(args.provision)
