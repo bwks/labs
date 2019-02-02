@@ -1,3 +1,4 @@
+configure exclusive
 set system host-name {{ hostname }}
 set protocols lldp interface all
 set protocols lldp port-description-type interface-description
@@ -16,3 +17,4 @@ set interfaces ge-0/0/9.{{ vlan_id }} disable
 set interfaces lo0.{{ interface }} family inet address {{ data.ipv4_address }}
 set interfaces lo0.{{ interface }} family inet6 address {{ data.ipv6_address }}
 {% endfor %}
+commit and-quit

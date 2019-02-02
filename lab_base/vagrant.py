@@ -5,13 +5,28 @@ import io
 from multiprocessing.pool import ThreadPool
 
 
-def get_ssh_config(guest):
+def ssh_config_to_dict(guest):
     """
     Returns a dictionary of SSH config for each device.
     :param guests: A list of guests
     :return: Dict of devices SSH config
     """
-    return subprocess.getoutput(f'vagrant ssh-config {guest}')
+    config = subprocess.getoutput(f'vagrant ssh-config {guest}')
+    guest_config = {guest: {}}
+    for i in config.split('\n')[1::]:
+        if i:
+            j = i.strip().split(' ')
+            guest_config[guest].update({j[0]: j[1]})
+    return guest_config
+
+
+def ssh_config_to_list(ssh_config_dict):
+    ssh_config_list = []
+    for key, value in ssh_config_dict.items():
+        ssh_config_list.append(key)
+        for k, v in value.items():
+            ssh_config_list.append(f'  {k} {v}')
+    return ssh_config_list
 
 
 def get_guests():
@@ -42,10 +57,13 @@ def worker(guests):
 
     results = []
     for guest in guests:
-        result = pool.apply_async(get_ssh_config, (guest,))
+        result = pool.apply_async(ssh_config_to_dict, (guest,))
         results.append(result)
 
     pool.close()
     pool.join()
 
-    return [i.get() for i in results]
+    data = {}
+    for i in results:
+        data.update(i.get())
+    return data

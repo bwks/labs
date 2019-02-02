@@ -20,12 +20,12 @@ setup(
 
     install_requires=[
         'jinja2',
-        'nornir',
+        'pexpect',
     ],
 
     entry_points={
         'console_scripts': [
-            'lab_base = lab_base.cli:main',
+            'lab-base = lab_base.cli:main',
         ]
     },
 

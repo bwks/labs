@@ -6,11 +6,5 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 TEMPLATE_MAP = {
     'vmx': 'juniper-vmx.j2',
     'veos': 'arista-veos.j2',
-    'cx': 'cumulus-cx.j2',
-}
-NORNIR_DIR = os.path.join(BASE_DIR, 'nornir')
-DRIVER_MAP = {
-    'vmx': 'junos',
-    'veos': 'eos',
-    'cx': 'cumulus',
+    'cvx': 'cumulus-vx.j2',
 }
