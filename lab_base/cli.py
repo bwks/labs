@@ -27,5 +27,6 @@ def main():
         print(f'SSH config saved to file ".sshconfig and .sshconfig.json"')
 
     if args.provision:
-        print('Gathering vagrant SSH config')
-        provision.worker(args.provision)
+        print('Applying config to devices')
+        print(args.provision)
+        # provision.worker(args.provision)
