@@ -7,10 +7,13 @@ import json
 
 from lab_base import vagrant
 from lab_base import provision
+from lab_base import generate_base_config
 
 
 def main():
     parser = argparse.ArgumentParser(description='Lab Base Provisioning')
+    parser.add_argument('--device-config', default=False, action='store_true',
+                        dest='device_config', help='Generate device config')
     parser.add_argument('--ssh-config', default=False, action='store_true',
                         dest='ssh_config', help='Gather Vagrant SSH config')
     parser.add_argument('--apply-config', nargs='+',
@@ -25,7 +28,7 @@ def main():
             f.write('\n'.join(vagrant.ssh_config_to_list(ssh_config_dict)))
         with open('.sshconfig.json', 'w') as f:
             f.write(json.dumps(ssh_config_dict))
-        print(f'SSH config saved to file ".sshconfig and .sshconfig.json"')
+        print(f'SSH config saved to files ".sshconfig and .sshconfig.json"')
 
     if args.apply_config:
         print('Applying config to devices')
@@ -33,3 +36,9 @@ def main():
             if guest not in guests:
                 raise ValueError('Guest: {guest} either not configured or up.')
         provision.worker(args.apply_config)
+        print('Config applied to devices.')
+
+    if args.generate_config:
+        print('Genrating device config')
+        generate_base_config.make_config()
+        print('Config saved to "./config" directory.')
