@@ -20,7 +20,8 @@ setup(
 
     install_requires=[
         'jinja2',
-        'pexpect',
+        'napalm',
+        'pyyaml',
     ],
 
     entry_points={
