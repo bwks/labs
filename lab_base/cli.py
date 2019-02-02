@@ -20,13 +20,13 @@ def main():
                         dest='apply_config', help='Apply config to devices')
     args = parser.parse_args()
 
-    if args.ssh_config or args.apply_config:
-        guests = vagrant.get_guests()
-
     if args.device_config:
         print('Generating device config')
         generate_base_config.make_config()
         print('Config saved to "./config" directory.')
+
+    if args.ssh_config or args.apply_config:
+        guests = vagrant.get_guests()
 
     if args.ssh_config:
         print('Gathering vagrant SSH config')
