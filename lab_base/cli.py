@@ -23,4 +23,6 @@ def main():
         ssh_config_dict = worker(guests)
         with open('.sshconfig', 'w') as f:
             f.write('\n'.join(ssh_config_to_list(ssh_config_dict)))
-        print(f'SSH config saved to file ".sshconfig"')
+        with open('.sshconfig.json', 'w') as f:
+            f.write(json.dumps(ssh_config_dict))
+        print(f'SSH config saved to file ".sshconfig and .sshconfig.json"')
