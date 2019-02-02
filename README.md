@@ -29,7 +29,8 @@ git clone git@github.com:bobthebutcher/labs.git
 grifter create guests.yml
 ```
 
-Build Vagrant guests
+Build Vagrant guests. Below a regex is used to bring 
+up only the guests in pod 1.
 ``` 
 vagrant up /^p1/
 ```
