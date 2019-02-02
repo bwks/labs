@@ -32,4 +32,4 @@ def main():
         for guest in args.apply_config:
             if guest not in guests:
                 raise ValueError('Guest: {guest} either not configured or up.')
-        provision.worker(args.provision)
+        provision.worker(args.apply_config)
