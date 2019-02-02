@@ -72,11 +72,41 @@ def create_loopback(device):
 
 
 def generate_vlans(data):
-    vlans = []
+    all_vlans = []
     for k, v in data.items():
         for subint in v['sub_interfaces']:
-            vlans.append(int(subint.split('.')[-1]))
-    return sorted(set(vlans))
+            all_vlans.append(int(subint.split('.')[-1]))
+
+    sorted_vlans = sorted(set(all_vlans))
+
+    interpod_vlans = []
+    pod1_vlans = []
+    pod2_vlans = []
+    pod3_vlans = []
+    pod4_vlans = []
+
+    for vlan in sorted_vlans:
+        _vlan = str(vlan)
+        if len(_vlan) == 3:
+            if _vlan.startswith('1'):
+                pod1_vlans.append(vlan)
+            elif _vlan.startswith('2'):
+                pod2_vlans.append(vlan)
+            elif _vlan.startswith('3'):
+                pod3_vlans.append(vlan)
+            elif _vlan.startswith('4'):
+                pod4_vlans.append(vlan)
+        else:
+            interpod_vlans.append(vlan)
+
+    return {
+        'all': sorted_vlans,
+        'inter-pod': interpod_vlans,
+        'pod1': pod1_vlans,
+        'pod2': pod2_vlans,
+        'pod3': pod3_vlans,
+        'pod4': pod4_vlans,
+        }
 
 
 def generate_router_list():

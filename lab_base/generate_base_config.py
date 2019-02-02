@@ -20,6 +20,13 @@ def make_config():
     routers = list(data['routers'].keys())
     switches = [f'p{x}sw1{x}' for x in range(1, 5)]
 
+    pod_map = {
+        'p1': 'pod1',
+        'p2': 'pod2',
+        'p3': 'pod3',
+        'p4': 'pod4',
+    }
+
     for router in routers:
         config = render_from_template(
             template_name=TEMPLATE_MAP[router_model],
@@ -30,10 +37,12 @@ def make_config():
         write_to_file(router, router_model, config)
 
     for switch in switches:
+        pod = pod_map.get(switch[::2])
         config = render_from_template(
             template_name=TEMPLATE_MAP[switch_model],
             template_directory=TEMPLATES_DIR,
             hostname=switch,
-            vlans=data['vlans']
+            vlans=data['vlans'],
+            pod=pod,
         )
         write_to_file(switch, switch_model, config)

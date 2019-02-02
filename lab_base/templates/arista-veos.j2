@@ -1,10 +1,22 @@
 hostname {{ hostname }}
 !
-{% for vlan in vlans %}
+{% for vlan in vlans.get(pod) %}
 vlan {{ vlan }}
    name vl{{ vlan }}
+   trunk group intra-pod
 !
 {% endfor %}
-interface eth1-9,eth11-14
+{% for vlan in vlans.get('inter-pod') %}
+vlan {{ vlan }}
+   name vl{{ vlan }}
+   trunk group inter-pod
+!
+{% endfor %}
+interface eth1-9
     switchport mode trunk
+    switchport trunk group intra-pod
+!
+interface eth11-14
+    switchport mode trunk
+    switchport trunk allowed vlan all
 !
