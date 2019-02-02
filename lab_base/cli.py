@@ -14,8 +14,8 @@ from lab_base.vagrant import (
 
 def main():
     parser = argparse.ArgumentParser(description='Lab Base Provisioning')
-    parser.add_argument('--ssh-config', help='Provision lab', default=False, action='store_true',
-                        dest='ssh_config')
+    parser.add_argument('--ssh-config', default=False, action='store_true',
+                        dest='ssh_config', help='Gather Vagrant SSH config')
     args = parser.parse_args()
 
     if args.ssh_config:
