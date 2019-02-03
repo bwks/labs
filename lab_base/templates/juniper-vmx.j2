@@ -1,7 +1,7 @@
 set system host-name {{ hostname }}
 set protocols lldp interface all
 set protocols lldp port-id-subtype interface-name
-{% for interface, data in interfaces.physical_interfaces.items() %}
+{% for interface, data in interfaces.p2p_interfaces.items() %}
 set interfaces ge-0/0/{{ interface }}.0 family inet address {{ data.ipv4_address }}
 set interfaces ge-0/0/{{ interface }}.0 family inet6 address {{ data.ipv6_address }}
 {% endfor %}

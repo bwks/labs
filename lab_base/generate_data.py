@@ -17,12 +17,12 @@ def create_p2p(device):
     local_pod = data['local_pod']
     local_router = data['local_router']
 
-    interfaces = {'physical_interfaces': {}}
+    interfaces = {'p2p_interfaces': {}}
     for remote_router in data['other_routers']:
         low_router = min(data['local_router'], remote_router)
         high_router = max(data['local_router'], remote_router)
 
-        interfaces['physical_interfaces'][remote_router] = {
+        interfaces['p2p_interfaces'][remote_router] = {
             'ipv4_address': f'10.{local_pod}.{low_router}{high_router}.{local_router}/24',
             'ipv6_address': f'fd00:10:{local_pod}:{low_router}{high_router}::{local_router}/64'
         }
