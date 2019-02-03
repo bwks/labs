@@ -352,10 +352,10 @@ p1r8-vfp:
 
 p1sw1:
   vagrant_box:
-    name: "CumulusCommunity/cumulus-vx"
+    name: "arista/veos"
 
   provider_config:
-    nic_adapter_count: 12
+    nic_adapter_count: 14
 
   data_interfaces:
     - local_port: 1
@@ -746,10 +746,10 @@ p2r8-vfp:
 
 p2sw1:
   vagrant_box:
-    name: "CumulusCommunity/cumulus-vx"
+    name: "arista/veos"
 
   provider_config:
-    nic_adapter_count: 12
+    nic_adapter_count: 14
 
   data_interfaces:
     - local_port: 1
@@ -1140,10 +1140,10 @@ p3r8-vfp:
 
 p3sw1:
   vagrant_box:
-    name: "CumulusCommunity/cumulus-vx"
+    name: "arista/veos"
 
   provider_config:
-    nic_adapter_count: 12
+    nic_adapter_count: 14
 
   data_interfaces:
     - local_port: 1
@@ -1534,10 +1534,10 @@ p4r8-vfp:
 
 p4sw1:
   vagrant_box:
-    name: "CumulusCommunity/cumulus-vx"
+    name: "arista/veos"
 
   provider_config:
-    nic_adapter_count: 12
+    nic_adapter_count: 14
 
   data_interfaces:
     - local_port: 1

@@ -18,7 +18,7 @@ def make_config():
     router_model = 'vmx'
     switch_model = 'veos'
     routers = list(data['routers'].keys())
-    switches = [f'p{x}sw1{x}' for x in range(1, 5)]
+    switches = [f'p{x}sw1' for x in range(1, 5)]
 
     pod_map = {
         'p1': 'pod1',
