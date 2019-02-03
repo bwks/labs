@@ -40,5 +40,5 @@ vagrant up /^p1/
 
 Generate and apply config
 ``` 
-lab-base --device-config --ssh-config --apply-config p1r1 p1r2 p1r3 p1r4 p1r5 p1r6 p1r7 p1r8 p1sw11
+lab-base --device-config --ssh-config --apply-config p1r1 p1r2 p1r3 p1r4 p1r5 p1r6 p1r7 p1r8 p1sw1
 ```
