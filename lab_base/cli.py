@@ -14,7 +14,7 @@ if not sys.version_info >= (3, 6):
 def validate_devices(devices, ssh_config):
     for dev in devices:
         if dev not in ssh_config:
-            raise ValueError('Guest: {guest} either not configured or up.')
+            sys.exit(f'Device: {dev} either not configured or up.')
 
 
 def main():
