@@ -27,11 +27,9 @@ def main():
         generate_base_config.make_config()
         print('Config saved to "./config" directory.')
 
-    if args.ssh_config or args.apply_config or args.reload_baseline:
-        guests = vagrant.get_guests()
-
     if args.ssh_config:
         print('Gathering vagrant SSH config')
+        guests = vagrant.get_guests()
         ssh_config_dict = vagrant.worker(guests)
         with open('.sshconfig', 'w') as f:
             f.write('\n'.join(vagrant.ssh_config_to_list(ssh_config_dict)))
@@ -41,16 +39,9 @@ def main():
 
     if args.apply_config:
         print('Applying config to devices')
-        for guest in args.apply_config:
-            if guest not in guests:
-                raise ValueError('Guest: {guest} either not configured or up.')
         provision.worker(args.apply_config, 'apply_config')
         print('Config applied to devices.')
 
     if args.reload_baseline:
-        print('Reloading baseline configs')
-        for guest in args.reload_baseline:
-            if guest not in guests:
-                raise ValueError('Guest: {guest} either not configured or up.')
         provision.worker(args.reload_baseline, 'reload_baseline')
         print('Baseline applied to devices.')
