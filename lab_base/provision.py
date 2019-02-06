@@ -3,6 +3,7 @@ import json
 from multiprocessing.pool import ThreadPool
 from napalm import get_network_driver
 
+from lab_base import utils
 
 def driver_switcher(device_model):
     driver_map = {
@@ -48,14 +49,12 @@ def get_device_model():
 
 
 def provisioner(device, device_model):
-    with open('.sshconfig.json', 'r') as f:
-        ssh_config_json = json.load(f)
-
+    ssh_config = utils.load_ssh_config()
     config = f'config/{device}-{device_model}.cfg'
     device_driver = driver_switcher(device_model)
 
     if device_driver == 'eos':
-        device = ssh_config_json[device].get('HostName')
+        device = ssh_config[device].get('HostName')
 
     commit_message = 'base-config' if device_driver == 'junos' else ''
     driver = get_network_driver(device_driver)
@@ -69,13 +68,11 @@ def provisioner(device, device_model):
 
 
 def reload_baseline(device, device_model):
-    with open('.sshconfig.json', 'r') as f:
-        ssh_config_json = json.load(f)
-
+    ssh_config = utils.load_ssh_config()
     device_driver = driver_switcher(device_model)
 
     if device_driver == 'eos':
-        device = ssh_config_json[device].get('HostName')
+        device = ssh_config[device].get('HostName')
 
     commit_message = 'base-config' if device_driver == 'junos' else ''
     driver = get_network_driver(device_driver)
