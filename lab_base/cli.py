@@ -18,6 +18,8 @@ def main():
                         dest='ssh_config', help='Gather Vagrant SSH config')
     parser.add_argument('--apply-config', nargs='+',
                         dest='apply_config', help='Apply config to devices')
+    parser.add_argument('--reload-baseline', nargs='+',
+                        dest='reload_baseline', help='Reload baseline config')
     args = parser.parse_args()
 
     if args.device_config:
@@ -42,6 +44,13 @@ def main():
         for guest in args.apply_config:
             if guest not in guests:
                 raise ValueError('Guest: {guest} either not configured or up.')
-        provision.worker(args.apply_config)
+        provision.worker(args.apply_config, 'apply_config')
         print('Config applied to devices.')
 
+    if args.reload_baseline:
+        print('Reloading baseline configs')
+        for guest in args.reload_baseline:
+            if guest not in guests:
+                raise ValueError('Guest: {guest} either not configured or up.')
+        provision.worker(args.reload_baseline, 'reload_baseline')
+        print('Baseline applied to devices.')
