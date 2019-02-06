@@ -27,7 +27,7 @@ def main():
         generate_base_config.make_config()
         print('Config saved to "./config" directory.')
 
-    if args.ssh_config or args.apply_config:
+    if args.ssh_config or args.apply_config or args.reload_baseline:
         guests = vagrant.get_guests()
 
     if args.ssh_config:
