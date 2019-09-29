@@ -32,6 +32,7 @@ def make_config():
             template_name=TEMPLATE_MAP[router_model],
             template_directory=TEMPLATES_DIR,
             hostname=router,
+            local_router=router[-1],
             interfaces=data['routers'][router]
         )
         write_to_file(router, router_model, config)
