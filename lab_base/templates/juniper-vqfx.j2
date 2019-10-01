@@ -1,0 +1,21 @@
+wildcard range delete interfaces et-0/0/[0-71]
+wildcard range delete interfaces xe-0/0/[0-71]
+wildcard range delete interfaces xe-0/0/[0-71]:[0-3]
+set system host-name {{ hostname }}
+set protocols lldp port-id-subtype interface-name
+set protocols lldp interface all
+set protocols lldp-med interface all
+{% for vlan in vlans.get(pod) %}
+set vlans vl-{{ vlan }} vlan-id {{ vlan }}
+{% endfor %}
+{% for vlan in vlans.get('inter-pod') %}
+set vlans vl-{{ vlan }} vlan-id {{ vlan }}
+{% endfor %}
+{% for interface in range(2, 10) %}
+set interfaces xe-0/0/{{ interface }}.0 family ethernet-switching interface-mode trunk
+set interfaces xe-0/0/{{ interface }}.0 family ethernet-switching vlan members [{{ vlans.get(pod) | join(' ') }}]
+{% endfor %}
+{% for interface in [1, 10, 11] %}
+set interfaces xe-0/0/{{ interface }}.0 family ethernet-switching interface-mode trunk
+set interfaces xe-0/0/{{ interface }}.0 family ethernet-switching vlan members [{{ vlans.get('inter-pod') | join(' ') }}]
+{% endfor %}
