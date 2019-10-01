@@ -1,7 +1,7 @@
 def generate_device_data(device):
     local_pod = int(device[1])
     local_router = int(device[3])
-    other_routers = [x for x in range(1, 9) if x != local_router]
+    other_routers = [x for x in range(2, 10) if x != local_router]
     other_pods = [x for x in range(1, 5) if x != local_pod]
 
     return {
@@ -39,7 +39,7 @@ def create_sub_interface(device):
         low_router = min(data['local_router'], remote_router)
         high_router = max(data['local_router'], remote_router)
 
-        interfaces['sub_interfaces'][f'9.{data["local_pod"]}{low_router}{high_router}'] = {
+        interfaces['sub_interfaces'][f'{data["local_pod"]}{low_router}{high_router}'] = {
             'ipv4_address': f'10.{local_pod}{local_pod}.{low_router}{high_router}.{local_router}/24',
             'ipv6_address': f'fd00:10:{local_pod}{local_pod}:{low_router}{high_router}::{local_router}/64'
         }
@@ -47,11 +47,11 @@ def create_sub_interface(device):
     for remote_pod in data['other_pods']:
         low_pod = min(data['local_pod'], remote_pod)
         high_pod = max(data['local_pod'], remote_pod)
-        for remote_router in range(1, 9):
+        for remote_router in range(2, 10):
             low_router = min(data['local_router'], remote_router)
             high_router = max(data['local_router'], remote_router)
 
-            interfaces['sub_interfaces'][f'9.{low_pod}{high_pod}{low_router}{high_router}'] = {
+            interfaces['sub_interfaces'][f'{low_pod}{high_pod}{low_router}{high_router}'] = {
                 'ipv4_address': f'10.{low_pod}{high_pod}.{low_router}{high_router}.{local_pod}{local_router}/24',
                 'ipv6_address': f'fd00:10:{low_pod}{high_pod}:{low_router}{high_router}::{local_pod}{local_router}/64'
             }
@@ -112,7 +112,7 @@ def generate_vlans(data):
 def generate_router_list():
     routers = []
     for pod in range(1, 5):
-        for router in range(1, 9):
+        for router in range(2, 10):
             routers.append(f'p{pod}r{router}')
     return routers
 

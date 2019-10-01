@@ -5,9 +5,11 @@ from napalm import get_network_driver
 
 from lab_base import utils
 
+
 def driver_switcher(device_model):
     driver_map = {
         'vmx': 'junos',
+        'vqfx': 'junos',
         'veos': 'eos',
     }
     if device_model in driver_map:
@@ -36,6 +38,7 @@ def get_device_model():
         guests = yaml.safe_load(f)
     guests_map = {
         'juniper/vmx-vcp': 'vmx',
+        'juniper/vqfx-re': 'vqfx',
         'arista/veos': 'veos',
         'CumulusCommunity/cumulus-vx': 'cvx'
     }

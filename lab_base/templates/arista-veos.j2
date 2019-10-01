@@ -14,11 +14,11 @@ vlan {{ vlan }}
    trunk group all-vlans
 !
 {% endfor %}
-interface eth1-8
+interface eth2-9
     switchport mode trunk
     switchport trunk group intra-pod
 !
-interface eth9-10
+interface eth1,10
     shutdown
 !
 interface eth11-14
