@@ -1,5 +1,4 @@
 import yaml
-import json
 from multiprocessing.pool import ThreadPool
 from napalm import get_network_driver
 

@@ -5,18 +5,16 @@ from lab_base.loaders import render_from_template
 from lab_base.constants import TEMPLATES_DIR, TEMPLATE_MAP
 
 
-def write_to_file(device, device_model, config):
-    with open(f'config/{device}-{device_model}.cfg', 'w') as f:
+def write_to_file(device, device_model, config_type, config):
+    with open(f'config/{config_type}/{device}-{device_model}.cfg', 'w') as f:
         f.write(config)
 
 
-def make_config():
-    config_dir = pathlib.Path('config')
-    config_dir.mkdir(exist_ok=True)
+def make_config(router_model='vmx', switch_model='vqfx', config_type='base'):
+    config_dir = pathlib.Path(f'config/{config_type}')
+    config_dir.mkdir(exist_ok=True, parents=True)
 
     data = generate_data()
-    router_model = 'vmx'
-    switch_model = 'vqfx'
     routers = list(data['routers'].keys())
     switches = [f'p{x}sw1' for x in range(1, 5)]
 
@@ -30,20 +28,20 @@ def make_config():
     for router in routers:
         config = render_from_template(
             template_name=TEMPLATE_MAP[router_model],
-            template_directory=TEMPLATES_DIR,
+            template_directory=f'{TEMPLATES_DIR}/{config_type}',
             hostname=router,
             local_router=router[-1],
             interfaces=data['routers'][router]
         )
-        write_to_file(router, router_model, config)
+        write_to_file(device=router, device_model=router_model, config_type=config_type, config=config)
 
     for switch in switches:
         pod = pod_map.get(switch[:2])
         config = render_from_template(
             template_name=TEMPLATE_MAP[switch_model],
-            template_directory=TEMPLATES_DIR,
+            template_directory=f'{TEMPLATES_DIR}/{config_type}',
             hostname=switch,
             vlans=data['vlans'],
             pod=pod,
         )
-        write_to_file(switch, switch_model, config)
+        write_to_file(device=switch, device_model=switch_model, config_type=config_type, config=config)
