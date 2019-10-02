@@ -1,2 +1,6 @@
-include lab_base/templates/*
+include lab_base/templates/base/*
+include lab_base/templates/bgp/*
+include lab_base/templates/isis/*
+include lab_base/templates/mpls/*
+include lab_base/templates/ospf/*
 include lab_base/nornir/*
