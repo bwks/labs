@@ -18,10 +18,13 @@ nr = InitNornir(
     inventory={
         "plugin": "nornir.plugins.inventory.simple.SimpleInventory",
         "options": {
-            "host_file": "inventory/hosts.yaml",
-            "group_file": "inventory/groups.yaml"
+            "hosts": hosts,
+            "groups": groups,
+            # "host_file": "inventory/hosts.yaml",
+            # "group_file": "inventory/groups.yaml"
         }
-    }
+    },
+    ssh={"config_file": ".sshconfig"}
 )
 
 groups = {
@@ -39,4 +42,8 @@ groups = {
     'ospf': {},
     'isis': {},
     'mpls': {},
+    'pod1': {},
+    'pod2': {},
+    'pod3': {},
+    'pod4': {},
 }
