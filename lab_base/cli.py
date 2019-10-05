@@ -24,7 +24,7 @@ def main():
                         dest='device_config', help='Generate device config')
     parser.add_argument('--ssh-config', default=False, action='store_true',
                         dest='ssh_config', help='Gather Vagrant SSH config')
-    parser.add_argument('--apply-config', nargs='+',
+    parser.add_argument('--apply-config', nargs=1,
                         dest='apply_config', help='Apply config to devices')
     parser.add_argument('--reload-baseline', nargs='+',
                         dest='reload_baseline', help='Reload baseline config')
@@ -49,7 +49,7 @@ def main():
         # ssh_config = utils.load_json_file('.ssh_config.json')
         # validate_devices(args.apply_config, ssh_config)
         print('Applying config to devices.')
-        provisioner.provision()
+        provisioner.provision(config_type=args.apply_config)
         print('Config applied to devices.')
 
     if args.reload_baseline:

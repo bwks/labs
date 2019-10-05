@@ -50,7 +50,7 @@ def config_device(task, config_type="base", replace_config=False):
              configuration=task.host["config"])
 
 
-def provision():
+def provision(config_type):
     nr = InitNornir(
         core={"num_workers": 100},
         inventory={
@@ -64,5 +64,5 @@ def provision():
     )
 
     devices = nr.filter(F(groups__contains='pod1'))
-    result = devices.run(task=config_device, config_type='base', replace_config=False)
+    result = devices.run(task=config_device, config_type=config_type, replace_config=False)
     print_result(result)
