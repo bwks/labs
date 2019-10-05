@@ -4,6 +4,7 @@ import json
 
 from lab_base import vagrant
 from lab_base import provision
+from lab_base import provisioner
 from lab_base import generate_base_config
 from lab_base import utils
 
@@ -45,14 +46,14 @@ def main():
         print(f'SSH config saved to files ".sshconfig and .sshconfig.json"')
 
     if args.apply_config:
-        ssh_config = utils.load_ssh_config()
+        ssh_config = utils.load_json_file('.ssh_config.json')
         validate_devices(args.apply_config, ssh_config)
         print('Applying config to devices.')
-        provision.worker(args.apply_config, 'apply_config')
+        provisioner.provision()
         print('Config applied to devices.')
 
     if args.reload_baseline:
-        ssh_config = utils.load_ssh_config()
+        ssh_config = utils.load_json_file('.ssh_config.json')
         validate_devices(args.reload_baseline, ssh_config)
         print('Reloading device baselines.')
         provision.worker(args.reload_baseline, 'reload_baseline')

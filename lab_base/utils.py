@@ -65,7 +65,7 @@ def generate_nornir_inventory():
     """
     ssh_config = load_json_file('.sshconfig.json')
     guests = load_yaml_file('guests.yml')
-    exclude_guest_types = ['-vfp', 'pfe']
+    exclude_guest_types = ['-vfp', '-pfe']
     inventory = {}
     for host, data in ssh_config.items():
         if any(i in host for i in exclude_guest_types):
