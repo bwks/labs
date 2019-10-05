@@ -1,11 +1,11 @@
 from nornir import InitNornir
 
-from lab_base.utils import (
+from lab_config.utils import (
     load_yaml_file,
     load_json_file,
     driver_switcher
 )
-from lab_base.constants import MODEL_MAP
+from lab_config.constants import MODEL_MAP
 
 
 def generate_nornir_inventory():

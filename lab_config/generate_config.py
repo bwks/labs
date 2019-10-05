@@ -1,8 +1,8 @@
 import pathlib
 
-from lab_base.generate_data import generate_data
-from lab_base.loaders import render_from_template
-from lab_base.constants import TEMPLATES_DIR, TEMPLATE_MAP
+from lab_config.generate_data import generate_data
+from lab_config.loaders import render_from_template
+from lab_config.constants import TEMPLATES_DIR, TEMPLATE_MAP
 
 
 def write_to_file(device, device_model, config_type, config):

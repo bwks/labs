@@ -7,9 +7,9 @@ from nornir.plugins.tasks import networking, text, files
 from nornir.plugins.functions.text import print_title, print_result
 from nornir.core.filter import F
 
-from lab_base import vagrant
-from lab_base import init_nornir
-from lab_base import generate_config
+from lab_config import vagrant
+from lab_config import init_nornir
+from lab_config import generate_config
 
 if not sys.version_info >= (3, 6):
     sys.exit('Python 3.6 or greater required.')

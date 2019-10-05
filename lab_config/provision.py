@@ -2,7 +2,7 @@ import yaml
 from multiprocessing.pool import ThreadPool
 from napalm import get_network_driver
 
-from lab_base import utils
+from lab_config import utils
 
 
 def driver_switcher(device_model):
