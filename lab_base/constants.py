@@ -9,3 +9,9 @@ TEMPLATE_MAP = {
     'veos': 'arista-veos.j2',
     'cvx': 'cumulus-vx.j2',
 }
+MODEL_MAP = {
+    'juniper/vmx-vcp': 'vmx',
+    'juniper/vqfx-re': 'vqfx',
+    'arista/veos': 'veos',
+    'CumulusCommunity/cumulus-vx': 'cvx'
+}

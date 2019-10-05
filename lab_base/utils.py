@@ -48,38 +48,3 @@ def driver_switcher(guest_model):
         return driver_map[guest_model]
     except KeyError:
         raise KeyError(f'Guest model: "{guest_model}" does not have an associated driver.')
-
-
-model_map = {
-    'juniper/vmx-vcp': 'vmx',
-    'juniper/vqfx-re': 'vqfx',
-    'arista/veos': 'veos',
-    'CumulusCommunity/cumulus-vx': 'cvx'
-}
-
-
-def generate_nornir_inventory():
-    """
-    Generate a Nornir inventory dict from .sshconfig.json and guests.yml files.
-    :return: Nornir inventory dict
-    """
-    ssh_config = load_json_file('.sshconfig.json')
-    guests = load_yaml_file('guests.yml')
-    exclude_guest_types = ['-vfp', '-pfe']
-    inventory = {}
-    for host, data in ssh_config.items():
-        if any(i in host for i in exclude_guest_types):
-            continue
-        guest_model = guests[host]['vagrant_box']['name']
-        platform = driver_switcher(guest_model)
-        inventory.update({
-            host: {
-                'hostname': host,
-                'username': data['User'],
-                'password': '',
-                'platform': platform,
-                'data': {'model': model_map[guest_model]},
-                'groups': [f'pod{host[1]}', 'base'],
-            }
-        })
-    return inventory
