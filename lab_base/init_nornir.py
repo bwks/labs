@@ -57,6 +57,7 @@ def init_nornir():
         'ospf': {},
         'isis': {},
         'mpls': {},
+        'bgp': {},
         'pod1': {},
         'pod2': {},
         'pod3': {},
