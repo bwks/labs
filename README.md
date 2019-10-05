@@ -8,7 +8,7 @@ Repository for various labs based on the following topolgy.
 - vagrant 2.1+
 - vagrant-libvirt
 - grifter
-- napalm
+- nornir
 
 
 ### Build Base Lab
@@ -38,12 +38,28 @@ up only the guests in pod 1.
 vagrant up /^p1/
 ```
 
-Generate and apply config
+Generate configuration and sshconfig files.
 ``` 
-lab-base --device-config --ssh-config --apply-config p1r1 p1r2 p1r3 p1r4 p1r5 p1r6 p1r7 p1r8 p1sw1
+lab-config --device-config --ssh-config
 ```
 
-Reload baseline config
+Apply base configurations
+```
+lab-config --apply-config base
+```
+
+Save baseline configuration
+```
+lab-config --save-config
+```
+
+Apply feature configurations
+```
+lab-config --apply-config isis
+```
+
+Reload baseline config. 
 ``` 
-lab-base --reload-baseline p1r1 p1r2 p1r3 p1r4 p1r5 p1r6 p1r7 p1r8 p1sw1
+# This will load the last saved configuration.
+lab-base --reload-baseline
 ```
