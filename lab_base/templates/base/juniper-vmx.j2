@@ -6,11 +6,11 @@ set protocols lldp-med interface all
 set interfaces ge-0/0/{{ interface }}.0 family inet address {{ data.ipv4_address }}
 set interfaces ge-0/0/{{ interface }}.0 family inet6 address {{ data.ipv6_address }}
 {% endfor %}
-set interfaces ge-0/0/{{ local_router }} flexible-vlan-tagging
+set interfaces ge-0/0/{{ device_data.local_router }} flexible-vlan-tagging
 {% for vlan_id, data in device_data.sub_interfaces.items() %}
-set interfaces ge-0/0/{{ local_router }}.{{ vlan_id }} vlan-id {{ vlan_id }} family inet address {{ data.ipv4_address }}
-set interfaces ge-0/0/{{ local_router }}.{{ vlan_id }} vlan-id {{ vlan_id }}  family inet6 address {{ data.ipv6_address }}
-set interfaces ge-0/0/{{ local_router }}.{{ vlan_id }} disable
+set interfaces ge-0/0/{{ device_data.local_router }}.{{ vlan_id }} vlan-id {{ vlan_id }} family inet address {{ data.ipv4_address }}
+set interfaces ge-0/0/{{ device_data.local_router }}.{{ vlan_id }} vlan-id {{ vlan_id }}  family inet6 address {{ data.ipv6_address }}
+set interfaces ge-0/0/{{ device_data.local_router }}.{{ vlan_id }} disable
 {% endfor %}
 {% for interface, data in device_data.loopbacks.items() %}
 set interfaces lo0.{{ interface }} family inet address {{ data.ipv4_address }}
