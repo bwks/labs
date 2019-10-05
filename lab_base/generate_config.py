@@ -10,7 +10,7 @@ def write_to_file(device, device_model, config_type, config):
         f.write(config)
 
 
-def make_config(router_model='vmx', switch_model='vqfx', config_type='base'):
+def make_base_config(router_model='vmx', switch_model='vqfx', config_type='base'):
     config_dir = pathlib.Path(f'config/{config_type}')
     config_dir.mkdir(exist_ok=True, parents=True)
 
@@ -44,3 +44,20 @@ def make_config(router_model='vmx', switch_model='vqfx', config_type='base'):
             pod=pod,
         )
         write_to_file(device=switch, device_model=switch_model, config_type=config_type, config=config)
+
+
+def make_feature_config(router_model='vmx', config_type='ospf'):
+    config_dir = pathlib.Path(f'config/{config_type}')
+    config_dir.mkdir(exist_ok=True, parents=True)
+
+    data = generate_data()
+    routers = list(data['routers'].keys())
+
+    for router in routers:
+        config = render_from_template(
+            template_name=TEMPLATE_MAP[router_model],
+            template_directory=f'{TEMPLATES_DIR}/{config_type}',
+            hostname=router,
+            device_data=data['routers'][router],
+        )
+        write_to_file(device=router, device_model=router_model, config_type=config_type, config=config)

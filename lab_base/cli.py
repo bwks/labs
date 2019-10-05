@@ -9,7 +9,7 @@ from nornir.core.filter import F
 
 from lab_base import vagrant
 from lab_base import init_nornir
-from lab_base import generate_base_config
+from lab_base import generate_config
 
 if not sys.version_info >= (3, 6):
     sys.exit('Python 3.6 or greater required.')
@@ -56,8 +56,8 @@ def validate_devices(devices, ssh_config):
 
 def main():
     parser = argparse.ArgumentParser(description='Lab Base Provisioning')
-    parser.add_argument('--device-config', default=False, action='store_true',
-                        dest='device_config', help='Generate device config')
+    parser.add_argument('--generate-config', default=False, action='store_true',
+                        dest='generate_config', help='Generate device config')
     parser.add_argument('--ssh-config', default=False, action='store_true',
                         dest='ssh_config', help='Gather Vagrant SSH config')
     parser.add_argument('--apply-config',
@@ -69,9 +69,11 @@ def main():
 
     args = parser.parse_args()
 
-    if args.device_config:
+    if args.generate_config:
         print('Generating device config.')
-        generate_base_config.make_config()
+        generate_config.make_base_config()
+        for config in ['ospf', 'isis', 'mpls']:
+            generate_config.make_feature_config(config)
         print('Config saved to "./config" directory.')
 
     if args.ssh_config:
