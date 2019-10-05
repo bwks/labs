@@ -64,5 +64,5 @@ def provision():
     )
 
     devices = nr.filter(F(groups__contains='pod1'))
-    result = devices.run(task=config_device, config='base', replace_config=False)
+    result = devices.run(task=config_device, config_type='base', replace_config=False)
     print_result(result)
