@@ -49,7 +49,7 @@ def main():
         # ssh_config = utils.load_json_file('.ssh_config.json')
         # validate_devices(args.apply_config, ssh_config)
         print('Applying config to devices.')
-        provisioner.provision(config_type=args.apply_config)
+        provisioner.provision(config_type=args.apply_config[0])
         print('Config applied to devices.')
 
     if args.reload_baseline:
