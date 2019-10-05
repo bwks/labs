@@ -46,8 +46,8 @@ def main():
         print(f'SSH config saved to files ".sshconfig and .sshconfig.json"')
 
     if args.apply_config:
-        ssh_config = utils.load_json_file('.ssh_config.json')
-        validate_devices(args.apply_config, ssh_config)
+        # ssh_config = utils.load_json_file('.ssh_config.json')
+        # validate_devices(args.apply_config, ssh_config)
         print('Applying config to devices.')
         provisioner.provision()
         print('Config applied to devices.')
