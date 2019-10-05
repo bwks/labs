@@ -41,7 +41,7 @@ def save_configs(task):
     task.run(
         task=files.write_file,
         content=config_result.result["config"]['running'],
-        filename=f"configs/baseline/{task.host}-{task.host['model']}.cfg",
+        filename=f"config/baseline/{task.host}-{task.host['model']}.cfg",
     )
 
 
