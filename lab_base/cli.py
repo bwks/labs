@@ -86,7 +86,7 @@ def main():
         print_result(result)
         print('Config applied to devices.')
 
-    if args.save_config():
+    if args.save_config:
         nr = init_nornir.init_nornir()
         devices = nr.filter(F(groups__contains="base"))
         print_title("Runbook to save rescue config")
