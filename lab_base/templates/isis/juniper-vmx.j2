@@ -1,4 +1,4 @@
-set routing-options router-id {{ device_data.interfaces.loopbacks.ipv4_address }}
+set routing-options router-id {{ device_data.loopbacks }}
 {% for router in device_data.other_routers %}
 set protocols isis interface ge-0/0/{{ router }}.0
 {% endfor %}
