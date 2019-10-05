@@ -1,4 +1,4 @@
-set routing-options router-id {{ device_data.loopbacks.0.ipv4_address }}
+set routing-options router-id 10.255.{{ device_data.local_pod }}.{{ device_data.local_router }}
 {% for router in device_data.other_routers %}
 set protocols ospf area 0.0.0.0 interface ge-0/0/{{ router }}.0
 {% endfor %}
