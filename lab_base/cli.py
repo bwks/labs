@@ -64,6 +64,9 @@ def main():
                         dest='apply_config', help='Apply a config to devices')
     parser.add_argument('--save-config', default=False, action='store_true',
                         dest='save_config', help='Save all devices config')
+    parser.add_argument("--reload-baseline", default=False, action="store_true",
+                        dest="reload_baseline", help="reload the saved baseline config")
+
     args = parser.parse_args()
 
     if args.device_config:
@@ -96,3 +99,9 @@ def main():
         result = devices.run(task=save_configs)
         print_result(result)
 
+    if args.reload_baseline:
+        nr = init_nornir.init_nornir()
+        devices = nr.filter(F(groups__contains="base"))
+        print_title("Runbook to reload baseline configs")
+        result = devices.run(task=config_device, config_type="baseline", replace_config=True)
+        print_result(result)
