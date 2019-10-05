@@ -58,6 +58,7 @@ def init_nornir():
                 }
             }
         },
+        'baseline': {},
         'ospf': {},
         'isis': {},
         'mpls': {},
