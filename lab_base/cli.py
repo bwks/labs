@@ -1,16 +1,15 @@
 import sys
 import argparse
 import json
+import pathlib
 
 from nornir.plugins.tasks import networking, text, files
 from nornir.plugins.functions.text import print_title, print_result
 from nornir.core.filter import F
 
 from lab_base import vagrant
-from lab_base import provision
 from lab_base import init_nornir
 from lab_base import generate_base_config
-from lab_base import utils
 
 if not sys.version_info >= (3, 6):
     sys.exit('Python 3.6 or greater required.')
@@ -34,6 +33,10 @@ def config_device(task, config_type="base", replace_config=False):
 
 
 def save_configs(task):
+    # Ensure backup path exists
+    backup_path = 'config/baseline'
+    pathlib.Path(backup_path).mkdir(parents=True, exist_ok=True)
+
     # Gather config using napalm_get and assign to a variable
     config_result = task.run(task=networking.napalm_get, getters=["config"])
 
@@ -41,7 +44,7 @@ def save_configs(task):
     task.run(
         task=files.write_file,
         content=config_result.result["config"]['running'],
-        filename=f"config/baseline/{task.host}-{task.host['model']}.cfg",
+        filename=f"{backup_path}/{task.host}-{task.host['model']}.cfg",
     )
 
 
