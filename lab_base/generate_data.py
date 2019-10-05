@@ -122,10 +122,11 @@ def generate_data():
 
     data = {'routers': {}}
     for router in routers:
+        device_data = generate_device_data(router)
         interfaces = create_p2p(router)
         sub_interfaces = create_sub_interface(router)
         loopbacks = create_loopback(router)
-        data['routers'][router] = {**interfaces, **sub_interfaces, **loopbacks}
+        data['routers'][router] = {**interfaces, **sub_interfaces, **loopbacks, **device_data}
 
     data['vlans'] = generate_vlans(data['routers'])
     return data
