@@ -19,8 +19,8 @@ def create_p2p(device):
 
     interfaces = {'p2p_interfaces': {}}
     for remote_router in data['other_routers']:
-        low_router = min(data['local_router'], remote_router)
-        high_router = max(data['local_router'], remote_router)
+        low_router = min(local_router, remote_router)
+        high_router = max(local_router, remote_router)
 
         interfaces['p2p_interfaces'][remote_router] = {
             'ipv4_address': f'10.{local_pod}.{low_router}{high_router}.{local_router}/24',
@@ -36,8 +36,8 @@ def create_sub_interface(device):
 
     interfaces = {'sub_interfaces': {}}
     for remote_router in data['other_routers']:
-        low_router = min(data['local_router'], remote_router)
-        high_router = max(data['local_router'], remote_router)
+        low_router = min(local_router, remote_router)
+        high_router = max(local_router, remote_router)
 
         interfaces['sub_interfaces'][f'{data["local_pod"]}{low_router}{high_router}'] = {
             'ipv4_address': f'10.{local_pod}{local_pod}.{low_router}{high_router}.{local_router}/24',
@@ -63,7 +63,7 @@ def create_loopback(device):
     local_pod = data["local_pod"]
     local_router = data["local_router"]
     return {
-        'loopbacks': {'0': {
+        'loopbacks': {0: {
             'ipv4_address': f'10.255.{local_pod}.{local_router}/32',
             'ipv6_address': f'fd00:10:255:{local_pod}::{local_router}/128',
             }
@@ -122,10 +122,11 @@ def generate_data():
 
     data = {'routers': {}}
     for router in routers:
+        device_data = generate_device_data(router)
         interfaces = create_p2p(router)
         sub_interfaces = create_sub_interface(router)
         loopbacks = create_loopback(router)
-        data['routers'][router] = {**interfaces, **sub_interfaces, **loopbacks}
+        data['routers'][router] = {**interfaces, **sub_interfaces, **loopbacks, **device_data}
 
     data['vlans'] = generate_vlans(data['routers'])
     return data

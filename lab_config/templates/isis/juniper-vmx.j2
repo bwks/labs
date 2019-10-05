@@ -1,0 +1,11 @@
+set routing-options router-id 10.255.{{ device_data.local_pod }}.{{ device_data.local_router }}
+{% for router in device_data.other_routers %}
+set protocols isis interface ge-0/0/{{ router }}.0
+{% endfor %}
+set protocols isis interface lo0.0 passive
+
+{% for router in device_data.other_routers %}
+set interfaces ge-0/0/{{ router }}.0 family iso
+{% endfor %}
+set interfaces lo0.0 family iso address 49.000{{ device_data.local_pod }}.000{{ device_data.local_router }}.000{{ device_data.local_router }}.000{{ device_data.local_router }}.00
+{#  #}

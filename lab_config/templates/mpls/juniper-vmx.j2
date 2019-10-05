@@ -1,0 +1,10 @@
+{% for router in device_data.other_routers %}
+set protocols mpls interface ge-0/0/{{ router }}.0
+{% endfor %}
+{% for router in device_data.other_routers %}
+set protocols ldp interface ge-0/0/{{ router }}.0
+{% endfor %}
+{% for router in device_data.other_routers %}
+set interfaces ge-0/0/{{ router }}.0 family mpls
+{% endfor %}
+{#  #}

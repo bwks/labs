@@ -8,7 +8,7 @@ def read(file_name):
 
 
 setup(
-    name='lab_base',
+    name='lab_config',
     version=read('VERSION'),
     author='Brad Searle',
     author_email='bradleysearle@gmail.com',
@@ -20,13 +20,13 @@ setup(
 
     install_requires=[
         'jinja2',
-        'napalm',
+        'nornir',
         'pyyaml',
     ],
 
     entry_points={
         'console_scripts': [
-            'lab-base = lab_base.cli:main',
+            'lab-config = lab_config.cli:main',
         ]
     },
 
