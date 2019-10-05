@@ -1,5 +1,5 @@
-set routing-options router-id {{ interfaces.loopbacks.ipv4_address }}
-{% for router in other_routers %}
+set routing-options router-id {{ device_data.loopbacks.ipv4_address }}
+{% for router in device_data.other_routers %}
 set protocols ospf area 0.0.0.0 interface ge-0/0/{{ router }}.0
 {% endfor %}
 set protocols ospf area 0.0.0.0 interface lo0.0 passive

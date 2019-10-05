@@ -2,17 +2,17 @@ set system host-name {{ hostname }}
 set protocols lldp port-id-subtype interface-name
 set protocols lldp interface all
 set protocols lldp-med interface all
-{% for interface, data in interfaces.p2p_interfaces.items() %}
+{% for interface, data in device_data.p2p_interfaces.items() %}
 set interfaces ge-0/0/{{ interface }}.0 family inet address {{ data.ipv4_address }}
 set interfaces ge-0/0/{{ interface }}.0 family inet6 address {{ data.ipv6_address }}
 {% endfor %}
 set interfaces ge-0/0/{{ local_router }} flexible-vlan-tagging
-{% for vlan_id, data in interfaces.sub_interfaces.items() %}
+{% for vlan_id, data in device_data.sub_interfaces.items() %}
 set interfaces ge-0/0/{{ local_router }}.{{ vlan_id }} vlan-id {{ vlan_id }} family inet address {{ data.ipv4_address }}
 set interfaces ge-0/0/{{ local_router }}.{{ vlan_id }} vlan-id {{ vlan_id }}  family inet6 address {{ data.ipv6_address }}
 set interfaces ge-0/0/{{ local_router }}.{{ vlan_id }} disable
 {% endfor %}
-{% for interface, data in interfaces.loopbacks.items() %}
+{% for interface, data in device_data.loopbacks.items() %}
 set interfaces lo0.{{ interface }} family inet address {{ data.ipv4_address }}
 set interfaces lo0.{{ interface }} family inet6 address {{ data.ipv6_address }}
 {% endfor %}

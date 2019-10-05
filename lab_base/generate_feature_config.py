@@ -22,7 +22,6 @@ def make_feature_config(router_model='vmx', config_type='ospf'):
             template_name=TEMPLATE_MAP[router_model],
             template_directory=f'{TEMPLATES_DIR}/{config_type}',
             hostname=router,
-            interfaces=data['routers'][router],
-            other_routers=data['other_routers'],
+            device_data=data['routers'][router],
         )
         write_to_file(device=router, device_model=router_model, config_type=config_type, config=config)

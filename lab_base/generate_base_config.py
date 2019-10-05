@@ -30,7 +30,7 @@ def make_config(router_model='vmx', switch_model='vqfx', config_type='base'):
             template_name=TEMPLATE_MAP[router_model],
             template_directory=f'{TEMPLATES_DIR}/{config_type}',
             hostname=router,
-            interfaces=data['routers'][router]
+            device_data=data['routers'][router]
         )
         write_to_file(device=router, device_model=router_model, config_type=config_type, config=config)
 
