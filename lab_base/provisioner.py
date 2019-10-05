@@ -41,8 +41,7 @@ def config_device(task, config_type="base", replace_config=False):
                  path=f"config/{config_type}")
 
     # Save the compiled configuration into a host variable
-    task.host["config"] = r.result\
-
+    task.host["config"] = r.result
 
     # Deploy that configuration to the device using NAPALM
     task.run(task=networking.napalm_configure,
