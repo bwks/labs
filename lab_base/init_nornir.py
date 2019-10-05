@@ -23,9 +23,9 @@ def generate_nornir_inventory():
         guest_model = guests[host]['vagrant_box']['name']
         platform = driver_switcher(guest_model)
         if 'sw' in host:
-            groups = [f'pod{host[1]}', 'baseline', 'base']
+            groups = [f'pod{host[1]}', 'base']
         else:
-            groups = [f'pod{host[1]}', 'baseline', 'base', 'ospf', 'isis', 'mpls', 'bgp']
+            groups = [f'pod{host[1]}', 'base', 'ospf', 'isis', 'mpls', 'bgp']
         inventory.update({
             host: {
                 'hostname': host,
@@ -58,7 +58,6 @@ def init_nornir():
                 }
             }
         },
-        'baseline': {},
         'ospf': {},
         'isis': {},
         'mpls': {},
