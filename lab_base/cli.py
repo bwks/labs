@@ -59,8 +59,8 @@ def main():
                         dest='ssh_config', help='Gather Vagrant SSH config')
     parser.add_argument('--apply-config',
                         dest='apply_config', help='Apply a config to devices')
-    parser.add_argument('--reload-baseline', nargs='+',
-                        dest='reload_baseline', help='Reload baseline config')
+    parser.add_argument('--save-config',
+                        dest='save_config', help='Save all devices config')
     args = parser.parse_args()
 
     if args.device_config:
