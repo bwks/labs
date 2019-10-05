@@ -63,7 +63,7 @@ def create_loopback(device):
     local_pod = data["local_pod"]
     local_router = data["local_router"]
     return {
-        'loopbacks': {'0': {
+        'loopbacks': {0: {
             'ipv4_address': f'10.255.{local_pod}.{local_router}/32',
             'ipv6_address': f'fd00:10:255:{local_pod}::{local_router}/128',
             }
