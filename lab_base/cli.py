@@ -33,6 +33,18 @@ def config_device(task, config_type="base", replace_config=False):
              configuration=task.host["config"])
 
 
+def save_configs(task):
+    # Gather config using napalm_get and assign to a variable
+    config_result = task.run(task=networking.napalm_get, getters=["config"])
+
+    # Write the configs to a file.
+    task.run(
+        task=files.write_file,
+        content=config_result.result["config"]['running'],
+        filename=f"configs/baseline/{task.host}-{task.host['model']}.cfg",
+    )
+
+
 def validate_devices(devices, ssh_config):
     for dev in devices:
         if dev not in ssh_config:
@@ -74,9 +86,10 @@ def main():
         print_result(result)
         print('Config applied to devices.')
 
-    if args.reload_baseline:
-        ssh_config = utils.load_json_file('.ssh_config.json')
-        validate_devices(args.reload_baseline, ssh_config)
-        print('Reloading device baselines.')
-        provision.worker(args.reload_baseline, 'reload_baseline')
-        print('Baseline applied to devices.')
+    if args.save_config():
+        nr = init_nornir.init_nornir()
+        devices = nr.filter(F(groups__contains="base"))
+        print_title("Runbook to save rescue config")
+        result = devices.run(task=save_configs)
+        print_result(result)
+
