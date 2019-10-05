@@ -7,3 +7,4 @@ set protocols ldp interface ge-0/0/{{ router }}.0
 {% for router in device_data.other_routers %}
 set interfaces ge-0/0/{{ router }}.0 family mpls
 {% endfor %}
+{#  #}
