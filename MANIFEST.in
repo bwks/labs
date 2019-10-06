@@ -1,6 +1,6 @@
-include lab_base/templates/base/*
-include lab_base/templates/bgp/*
-include lab_base/templates/isis/*
-include lab_base/templates/mpls/*
-include lab_base/templates/ospf/*
-include lab_base/nornir/*
+include lab_config/templates/base/*
+include lab_config/templates/bgp/*
+include lab_config/templates/isis/*
+include lab_config/templates/mpls/*
+include lab_config/templates/ospf/*
+include lab_config/nornir/*
