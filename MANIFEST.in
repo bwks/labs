@@ -1,6 +1,1 @@
-include lab_config/templates/base/*
-include lab_config/templates/bgp/*
-include lab_config/templates/isis/*
-include lab_config/templates/mpls/*
-include lab_config/templates/ospf/*
-include lab_config/nornir/*
+recursive-include lab_config/templates/ *
