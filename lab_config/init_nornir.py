@@ -115,6 +115,7 @@ def init_nornir():
             }
         },
         'ospf': {},
+        'ospf-1': {},
         'isis': {},
         'mpls': {},
         'bgp': {},
