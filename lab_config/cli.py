@@ -71,7 +71,7 @@ def main():
 
     if args.generate_config:
         print('Generating device config.')
-        generate_config.make_base_config()
+        # generate_config.make_base_config()
         for config in ['ospf', 'isis', 'mpls']:
             generate_config.make_feature_config(config_type=config)
         generate_config.make_lab_config()
