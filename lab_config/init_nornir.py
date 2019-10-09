@@ -7,6 +7,65 @@ from lab_config.utils import (
 )
 from lab_config.constants import MODEL_MAP
 
+lab_groups = {
+    'p1r2': [
+        'base',
+        'bgp',
+        'isis',
+        'ospf',
+        'ospf-1',
+    ],
+    'p1r3': [
+        'base',
+        'bgp',
+        'isis',
+        'ospf',
+        'ospf-1',
+    ],
+    'p1r4': [
+        'base',
+        'bgp',
+        'isis',
+        'ospf',
+    ],
+    'p1r5': [
+        'base',
+        'bgp',
+        'isis',
+        'ospf',
+    ],
+    'p1r6': [
+        'base',
+        'bgp',
+        'isis',
+        'ospf',
+        'ospf-1',
+    ],
+    'p1r7': [
+        'base',
+        'bgp',
+        'isis',
+        'ospf',
+        'ospf-1',
+    ],
+    'p1r8': [
+        'base',
+        'bgp',
+        'isis',
+        'ospf',
+    ],
+    'p1r9': [
+        'base',
+        'bgp',
+        'isis',
+        'ospf',
+    ],
+    'p1sw1': [
+        'base',
+        'ospf-1',
+    ],
+}
+
 
 def generate_nornir_inventory():
     """
@@ -22,10 +81,7 @@ def generate_nornir_inventory():
             continue
         guest_model = guests[host]['vagrant_box']['name']
         platform = driver_switcher(guest_model)
-        if 'sw' in host:
-            groups = [f'pod{host[1]}', 'base']
-        else:
-            groups = [f'pod{host[1]}', 'base', 'ospf', 'isis', 'mpls', 'bgp']
+        groups = lab_groups.get(host, [])
         inventory.update({
             host: {
                 'hostname': host,

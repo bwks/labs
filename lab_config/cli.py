@@ -74,6 +74,7 @@ def main():
         generate_config.make_base_config()
         for config in ['ospf', 'isis', 'mpls']:
             generate_config.make_feature_config(config_type=config)
+        generate_config.make_lab_config()
         print('Config saved to "./config" directory.')
 
     if args.ssh_config:

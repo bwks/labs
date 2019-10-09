@@ -61,3 +61,17 @@ def make_feature_config(router_model='vmx', config_type='ospf'):
             device_data=data['routers'][router],
         )
         write_to_file(device=router, device_model=router_model, config_type=config_type, config=config)
+
+
+def make_lab_config():
+    lab_configs = [
+        'ospf-1',
+    ]
+    for config in lab_configs:
+        config_dir = pathlib.Path(f'config/{config}')
+        config_dir.mkdir(exist_ok=True, parents=True)
+        path = pathlib.Path(f'{TEMPLATES_DIR}/{config}')
+        for file in path.iterdir():
+            with open(f'{file.name}', 'r') as f:
+                with open(f'{config_dir}/{file}', 'w') as c:
+                    c.writelines(f.readlines())
