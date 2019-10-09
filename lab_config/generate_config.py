@@ -72,6 +72,6 @@ def make_lab_config():
         config_dir.mkdir(exist_ok=True, parents=True)
         path = pathlib.Path(f'{TEMPLATES_DIR}/{config}')
         for file in path.iterdir():
-            with open(f'{file.name}', 'r') as f:
+            with open(f'{TEMPLATES_DIR}/{config}/{file.name}', 'r') as f:
                 with open(f'{config_dir}/{file}', 'w') as c:
                     c.writelines(f.readlines())
