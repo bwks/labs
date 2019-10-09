@@ -89,6 +89,7 @@ def main():
 
     if args.apply_config:
         print('Applying config to devices.')
+        print(args.apply_config)
         nr = init_nornir.init_nornir()
         devices = nr.filter(F(groups__contains=args.apply_config))
         result = devices.run(task=config_device, config_type=args.apply_config, replace_config=False)
