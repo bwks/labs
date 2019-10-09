@@ -65,7 +65,7 @@ def make_feature_config(router_model='vmx', config_type='ospf'):
 
 def make_lab_config():
     lab_configs = [
-        'ospf-1', 'ospf2',
+        'ospf-1', 'ospf-2',
     ]
     for config in lab_configs:
         config_dir = pathlib.Path(f'config/{config}')
