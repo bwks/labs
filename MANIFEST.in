@@ -1,1 +1,1 @@
-recursive-include lab_config/templates/ *
+recursive-include lab_config/templates/*
