@@ -11,25 +11,25 @@ lab_groups = {
     'p1r2': [
         'base',
         'bgp',
-        'isis', 'isis-1', 'isis-2',
+        'isis', 'isis-1', 'isis-2', 'isis-3',
         'ospf', 'ospf-1', 'ospf-2', 'ospf-3',
     ],
     'p1r3': [
         'base',
         'bgp',
-        'isis', 'isis-1', 'isis-2',
+        'isis', 'isis-1', 'isis-2', 'isis-3',
         'ospf', 'ospf-1', 'ospf-2', 'ospf-3',
     ],
     'p1r4': [
         'base',
         'bgp',
-        'isis',
+        'isis', 'isis-3',
         'ospf', 'ospf-3',
     ],
     'p1r5': [
         'base',
         'bgp',
-        'isis',
+        'isis', 'isis-3',
         'ospf', 'ospf-3',
     ],
     'p1r6': [
@@ -41,19 +41,19 @@ lab_groups = {
     'p1r7': [
         'base',
         'bgp',
-        'isis', 'isis-1', 'isis-2',
+        'isis', 'isis-1', 'isis-2', 'isis-3',
         'ospf', 'ospf-1', 'ospf-2', 'ospf-3',
     ],
     'p1r8': [
         'base',
         'bgp',
-        'isis',
+        'isis', 'isis-3',
         'ospf', 'ospf-3',
     ],
     'p1r9': [
         'base',
         'bgp',
-        'isis',
+        'isis', 'isis-3',
         'ospf', 'ospf-3',
     ],
     'p1sw1': [
