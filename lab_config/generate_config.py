@@ -65,7 +65,7 @@ def make_feature_config(router_model='vmx', config_type='ospf'):
 
 def make_lab_config():
     lab_configs = [
-        'isis-1',
+        'isis-1', 'isis-2',
         'ospf-1', 'ospf-2', 'ospf-3',
     ]
     for config in lab_configs:

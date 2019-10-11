@@ -11,13 +11,13 @@ lab_groups = {
     'p1r2': [
         'base',
         'bgp',
-        'isis', 'isis-1',
+        'isis', 'isis-1', 'isis-2',
         'ospf', 'ospf-1', 'ospf-2', 'ospf-3',
     ],
     'p1r3': [
         'base',
         'bgp',
-        'isis', 'isis-1',
+        'isis', 'isis-1', 'isis-2',
         'ospf', 'ospf-1', 'ospf-2', 'ospf-3',
     ],
     'p1r4': [
@@ -35,13 +35,13 @@ lab_groups = {
     'p1r6': [
         'base',
         'bgp',
-        'isis', 'isis-1',
+        'isis', 'isis-1', 'isis-2',
         'ospf', 'ospf-1', 'ospf-2', 'ospf-3',
     ],
     'p1r7': [
         'base',
         'bgp',
-        'isis', 'isis-1',
+        'isis', 'isis-1', 'isis-2',
         'ospf', 'ospf-1', 'ospf-2', 'ospf-3',
     ],
     'p1r8': [
@@ -117,6 +117,8 @@ def init_nornir():
         'ospf-3': {},
         'isis': {},
         'isis-1': {},
+        'isis-2': {},
+        'isis-3': {},
         'mpls': {},
         'bgp': {},
         'pod1': {},
