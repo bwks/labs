@@ -67,7 +67,7 @@ def make_lab_config():
     lab_configs = [
         'isis-1', 'isis-2', 'isis-3',
         'ospf-1', 'ospf-2', 'ospf-3',
-        'bgp-1', 'bgp-2',
+        'bgp-1', 'bgp-2', 'bgp-2',
     ]
     for config in lab_configs:
         config_dir = pathlib.Path(f'config/{config}')

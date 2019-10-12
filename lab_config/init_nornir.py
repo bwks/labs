@@ -10,13 +10,13 @@ from lab_config.constants import MODEL_MAP
 lab_groups = {
     'p1r2': [
         'base',
-        'bgp', 'bgp-1', 'bgp-2',
+        'bgp', 'bgp-1', 'bgp-2', 'bgp-3',
         'isis', 'isis-1', 'isis-2', 'isis-3',
         'ospf', 'ospf-1', 'ospf-2', 'ospf-3',
     ],
     'p1r3': [
         'base',
-        'bgp', 'bgp-1', 'bgp-2',
+        'bgp', 'bgp-1', 'bgp-2', 'bgp-3',
         'isis', 'isis-1', 'isis-2', 'isis-3',
         'ospf', 'ospf-1', 'ospf-2', 'ospf-3',
     ],
@@ -34,13 +34,13 @@ lab_groups = {
     ],
     'p1r6': [
         'base',
-        'bgp', 'bgp-1', 'bgp-2',
+        'bgp', 'bgp-1', 'bgp-2', 'bgp-3',
         'isis', 'isis-1', 'isis-2',
         'ospf', 'ospf-1', 'ospf-2', 'ospf-3',
     ],
     'p1r7': [
         'base',
-        'bgp', 'bgp-1', 'bgp-2',
+        'bgp', 'bgp-1', 'bgp-2', 'bgp-3',
         'isis', 'isis-1', 'isis-2', 'isis-3',
         'ospf', 'ospf-1', 'ospf-2', 'ospf-3',
     ],
@@ -123,6 +123,7 @@ def init_nornir():
         'bgp': {},
         'bgp-1': {},
         'bgp-2': {},
+        'bgp-3': {},
         'pod1': {},
         'pod2': {},
         'pod3': {},
