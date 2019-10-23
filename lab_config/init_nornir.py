@@ -18,7 +18,7 @@ lab_groups = {
         'base',
         'bgp', 'bgp-1', 'bgp-2', 'bgp-3',
         'isis', 'isis-1', 'isis-2', 'isis-3',
-        'ospf', 'ospf-1', 'ospf-2', 'ospf-3', 'ospf-4',
+        'ospf', 'ospf-1', 'ospf-2', 'ospf-3',
     ],
     'p1r4': [
         'base',
@@ -36,7 +36,7 @@ lab_groups = {
         'base',
         'bgp', 'bgp-1', 'bgp-2', 'bgp-3',
         'isis', 'isis-1', 'isis-2',
-        'ospf', 'ospf-1', 'ospf-2', 'ospf-3', 'ospf-4',
+        'ospf', 'ospf-1', 'ospf-2', 'ospf-3',
     ],
     'p1r7': [
         'base',
