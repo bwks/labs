@@ -115,6 +115,7 @@ def init_nornir():
         'ospf-1': {},
         'ospf-2': {},
         'ospf-3': {},
+        'ospf-4': {},
         'isis': {},
         'isis-1': {},
         'isis-2': {},
